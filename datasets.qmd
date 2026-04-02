@@ -1,0 +1,148 @@
+---
+format: typst
+---
+
+# Medical Insurance Cost Dataset (Kaggle)
+
+[Link](https://www.kaggle.com/datasets/mirichoi0218/insurance)
+[file](data/insurance.csv)
+
+- 1338 observations
+- 7 variables
+- response: `charges`
+
+
+# Diamonds (ggplot2)
+
+[link](https://ggplot2.tidyverse.org/reference/diamonds.html)
+
+
+```{r}
+library(ggplot2)
+data(diamonds)
+```
+
+- 53940 observations
+- 10 variables
+- response: `price`
+
+
+
+
+# Tips (reshape2)
+
+[link](https://rdrr.io/cran/reshape2/man/tips.html)
+[file](https://github.com/mwaskom/seaborn-data/blob/master/tips.csv)
+
+
+```{r}
+library(reshape2)
+data(tips)
+```
+
+
+- 244 observations
+- 7 variables
+- response: `tip`
+
+
+# Wage (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Wage)
+
+
+```{r}
+#| warning: false
+library(ISLR)
+data(Wage)
+```
+
+- Wage and other data for a group of 3000 male workers in the Mid-Atlantic region.
+- 3000 observations
+- 11 variables
+- response: `wage`
+
+
+# College (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#College)
+
+
+```{r}
+#| warning: false
+library(ISLR)
+data(College)
+```
+
+
+- Statistics for a large number of US Colleges from the 1995 issue of US News and World Report.
+- 777 observations
+- 18 variables
+- response: typical chosse `Outstate` Out-of-state tuition
+
+# Hitters (ISLR)
+
+
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Hitters)
+
+```{r}
+#| warning: false
+library(ISLR)
+data(Hitters)
+```
+
+
+- MLB baseball data 1986-1987
+- 322 observations
+- 20 variables
+- response: `Salary`
+
+
+# Carseats (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Carseats)
+
+
+```{r}
+#| warning: false
+library(ISLR)
+data(Carseats)
+```
+
+- A simulated data set containing sales of child car seats at 400 different stores.
+- 400 obseravations
+- 11 variables
+- response: `Sales`
+
+
+
+# Student Performance (UCI)
+
+[link](https://archive.ics.uci.edu/dataset/320/student+performance)
+
+[math](data/student-mat.csv)
+
+[por](data/student-por.csv)
+
+[combine](data/student-combine.csv)
+
+The combined dataset is gotten by the following code.
+```{r}
+#| eval: false
+d1 <- read.table("student-mat.csv", sep = ";", header = TRUE)
+d2 <- read.table("student-por.csv", sep = ";", header = TRUE)
+
+d3 <- merge(d1, d2, by = c("school", "sex", "age", "address", "famsize", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "reason", "nursery", "internet"))
+```
+
+- This data approach student achievement in secondary education of two Portuguese schools. 
+- 649 observations in por, 395 in math, and 382 in common
+- The common students can be identified by searching for identical attributes that characterize each student, as shown in the above code.
+- 30 variables (with 3 additional grade variables)
+- response: `G3` final grade
+
+
+# heart disease (UCI)
+
+[link](https://archive.ics.uci.edu/dataset/45/heart+disease)
