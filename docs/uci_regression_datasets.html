@@ -187,11 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#adult" id="toc-adult" class="nav-link" data-scroll-target="#adult"><span class="header-section-number">4.1</span> Adult</a></li>
   <li><a href="#air-quality" id="toc-air-quality" class="nav-link" data-scroll-target="#air-quality"><span class="header-section-number">4.2</span> Air Quality</a></li>
-  <li><a href="#restaurant-consumer-data" id="toc-restaurant-consumer-data" class="nav-link" data-scroll-target="#restaurant-consumer-data"><span class="header-section-number">4.3</span> Restaurant &amp; consumer data</a></li>
-  <li><a href="#communities-and-crime-unnormalized" id="toc-communities-and-crime-unnormalized" class="nav-link" data-scroll-target="#communities-and-crime-unnormalized"><span class="header-section-number">4.4</span> Communities and Crime Unnormalized</a></li>
-  <li><a href="#kdd-cup-1998" id="toc-kdd-cup-1998" class="nav-link" data-scroll-target="#kdd-cup-1998"><span class="header-section-number">4.5</span> KDD Cup 1998</a></li>
-  <li><a href="#real-estate-valuation" id="toc-real-estate-valuation" class="nav-link" data-scroll-target="#real-estate-valuation"><span class="header-section-number">4.6</span> Real Estate Valuation</a></li>
-  <li><a href="#ujiindoorloc" id="toc-ujiindoorloc" class="nav-link" data-scroll-target="#ujiindoorloc"><span class="header-section-number">4.7</span> UJIIndoorLoc</a></li>
+  <li><a href="#communities-and-crime-unnormalized" id="toc-communities-and-crime-unnormalized" class="nav-link" data-scroll-target="#communities-and-crime-unnormalized"><span class="header-section-number">4.3</span> Communities and Crime Unnormalized</a></li>
+  <li><a href="#real-estate-valuation" id="toc-real-estate-valuation" class="nav-link" data-scroll-target="#real-estate-valuation"><span class="header-section-number">4.4</span> Real Estate Valuation</a></li>
   </ul></li>
   <li><a href="#final-remark" id="toc-final-remark" class="nav-link" data-scroll-target="#final-remark"><span class="header-section-number">5</span> Final remark</a></li>
   </ul>
@@ -1326,37 +1323,228 @@ head(oulad_data)
 - **Missing-data handling:** inspect and handle missing values; the UCI page marks the dataset as having missing values
 - **Parsing / encoding:** convert date-like offset fields such as registration day, assessment day, and VLE interaction day into a consistent course-time scale
 - **Merging / reshaping:** join the linked tables such as `studentAssessment.csv`, `studentInfo.csv`, `studentRegistration.csv`, `studentVle.csv`, and `vle.csv` -->
+<!-- ## Restaurant & consumer data
+
+Webpage: <https://archive.ics.uci.edu/dataset/232/restaurant+consumer+data>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+restaurant_consumer <- fetch_ucirepo(id = 232)
+restaurant_consumer_data <- restaurant_consumer$data$original
+
+dim(restaurant_consumer_data)
+head(restaurant_consumer_data)
+```
+:::
+
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** the main rating table has 1,161 user-place ratings; the auxiliary tables range from 130 to 2,339 rows
+- **Response variable:** a clear regression target is `rating` from `rating_final.csv`
+- **Topic:** restaurant recommendation with user, place, and context attributes
+- **Missing-data handling:** inspect and handle missing values in files such as `geoplaces2.csv` and `userprofile.csv`
+- **Parsing / encoding:** encode the many categorical preference and restaurant-description variables
+- **Merging / reshaping:** join `rating_final.csv` with the user and restaurant tables using `userID` and `placeID` -->
 </section>
-<section id="restaurant-consumer-data" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="restaurant-consumer-data"><span class="header-section-number">4.3</span> Restaurant &amp; consumer data</h2>
-<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/232/restaurant+consumer+data" class="uri">https://archive.ics.uci.edu/dataset/232/restaurant+consumer+data</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>restaurant_consumer <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">232</span>)</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>restaurant_consumer_data <span class="ot">&lt;-</span> restaurant_consumer<span class="sc">$</span>data<span class="sc">$</span>original</span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(restaurant_consumer_data)</span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(restaurant_consumer_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><strong>Number of features:</strong> not clearly specified on the UCI page</li>
-<li><strong>Number of targets:</strong> not clearly specified on the UCI page</li>
-<li><strong>Number of observations:</strong> the main rating table has 1,161 user-place ratings; the auxiliary tables range from 130 to 2,339 rows</li>
-<li><strong>Response variable:</strong> a clear regression target is <code>rating</code> from <code>rating_final.csv</code></li>
-<li><strong>Topic:</strong> restaurant recommendation with user, place, and context attributes</li>
-<li><strong>Missing-data handling:</strong> inspect and handle missing values in files such as <code>geoplaces2.csv</code> and <code>userprofile.csv</code></li>
-<li><strong>Parsing / encoding:</strong> encode the many categorical preference and restaurant-description variables</li>
-<li><strong>Merging / reshaping:</strong> join <code>rating_final.csv</code> with the user and restaurant tables using <code>userID</code> and <code>placeID</code></li>
-</ul>
-</section>
-<section id="communities-and-crime-unnormalized" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="communities-and-crime-unnormalized"><span class="header-section-number">4.4</span> Communities and Crime Unnormalized</h2>
+<section id="communities-and-crime-unnormalized" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="communities-and-crime-unnormalized"><span class="header-section-number">4.3</span> Communities and Crime Unnormalized</h2>
 <p>Webpage: <a href="https://archive.ics.uci.edu/dataset/211/communities+and+crime+unnormalized" class="uri">https://archive.ics.uci.edu/dataset/211/communities+and+crime+unnormalized</a></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>communities_crime <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">211</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>communities_crime_data <span class="ot">&lt;-</span> communities_crime<span class="sc">$</span>data<span class="sc">$</span>original</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(communities_crime_data)</span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(communities_crime_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>communities_crime <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">211</span>)</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>communities_crime_data <span class="ot">&lt;-</span> communities_crime<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(communities_crime_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2215  147</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(communities_crime_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            communityname State countyCode communityCode fold    pop perHoush
+1 BerkeleyHeightstownship    NJ         39          5320    1  11980     3.10
+2          Marpletownship    PA         45         47616    1  23123     2.82
+3              Tigardcity    OR        NaN           NaN    1  29344     2.43
+4        Gloversvillecity    NY         35         29443    1  16656     2.40
+5             Bemidjicity    MN          7          5068    1  11245     2.76
+6         Springfieldcity    MO        NaN           NaN    1 140494     2.45
+  pctBlack pctWhite pctAsian pctHisp pct12-21 pct12-29 pct16-24 pct65up
+1     1.37    91.78     6.50    1.88    12.47    21.44    10.93   11.33
+2     0.80    95.57     3.44    0.85    11.01    21.30    10.48   17.18
+3     0.74    94.33     3.43    2.35    11.36    25.88    11.01   10.28
+4     1.70    97.35     0.50    0.70    12.55    25.20    12.19   17.57
+5     0.53    89.16     1.17    0.52    24.46    40.53    28.69   12.65
+6     2.51    95.65     0.90    0.95    18.09    32.89    20.04   13.26
+  persUrban pctUrban medIncome pctWwage pctWfarm pctWdiv pctWsocsec pctPubAsst
+1     11980      100     75122    89.24     1.55   70.20      23.62       1.03
+2     23123      100     47917    78.99     1.11   64.11      35.50       2.75
+3     29344      100     35669    82.00     1.15   55.73      22.25       2.94
+4         0        0     20580    68.15     0.24   38.95      39.48      11.71
+5         0        0     17390    69.33     0.55   42.82      32.16      11.21
+6    140494      100     21577    75.78     1.00   41.15      29.31       7.12
+  pctRetire medFamIncome perCapInc whitePerCap blackPerCap NAperCap asianPerCap
+1     18.39        79584     29711       30233       13600     5725       27101
+2     22.85        55323     20148       20191       18137        0       20074
+3     14.56        42112     16946       17103       16644    21606       15528
+4     18.33        26501     10810       10909        9984     4941        3541
+5     14.43        24018      8483        9009         887     4425        3352
+6     14.09        27705     11878       12029        7382    10264       10753
+  otherPerCap hispPerCap persPoverty pctPoverty pctLowEdu pctNotHSgrad
+1        5115      22838         227       1.96      5.81         9.90
+2        5250      12222         885       3.98      5.61        13.72
+3        5954       8405        1389       4.75      2.80         9.09
+4        2451       4391        2831      17.23     11.05        33.68
+5        3000       1328        2855      29.99     12.15        23.06
+6        7192       8104       23223      17.78      8.76        23.03
+  pctCollGrad pctUnemploy pctEmploy pctEmployMfg pctEmployProfServ pctOccupManu
+1       48.18        2.70     64.55        14.65             28.82         5.49
+2       29.89        2.43     61.96        12.26             29.28         6.39
+3       30.13        4.01     69.80        15.95             21.52         8.79
+4       10.81        9.86     54.74        31.22             27.43        26.76
+5       25.28        9.08     52.44         6.89             36.54        10.94
+6       20.66        5.72     59.02        14.31             26.83        14.72
+  pctOccupMgmt pctMaleDivorc pctMaleNevMar pctFemDivorc pctAllDivorc persPerFam
+1        50.73          3.67         26.38         5.22         4.47       3.22
+2        37.64          4.23         27.99         6.45         5.42       3.11
+3        32.48         10.10         25.78        14.76        12.55       2.95
+4        22.71         10.98         28.15        14.47        12.91       2.98
+5        27.80          7.51         50.66        11.64         9.73       2.98
+6        23.42         11.40         33.32        14.46        13.04       2.89
+  pct2Par pctKids2Par pctKids-4w2Par pct12-17w2Par pctWorkMom-6 pctWorkMom-18
+1   91.43       90.17          95.78         95.81        44.56         58.88
+2   86.91       85.33          96.82         86.46        51.14         62.43
+3   78.54       78.85          92.37         75.72        66.08         74.19
+4   64.02       62.36          65.38         67.43        59.59         70.27
+5   58.59       55.20          66.51         79.17        61.22         68.94
+6   71.94       69.79          79.76         75.33        62.96         70.52
+  kidsBornNevrMarr pctKidsBornNevrMarr numForeignBorn pctFgnImmig-3
+1               31                0.36           1277          8.69
+2               43                0.24           1920          5.21
+3              164                0.88           1468         16.42
+4              561                3.84            339         13.86
+5              402                4.70            196         46.94
+6             1511                1.58           2091         21.33
+  pctFgnImmig-5 pctFgnImmig-8 pctFgnImmig-10 pctImmig-3 pctImmig-5 pctImmig-8
+1         13.00         20.99          30.93       0.93       1.39       2.24
+2          8.65         13.33          22.50       0.43       0.72       1.11
+3         23.98         32.08          35.63       0.82       1.20       1.61
+4         13.86         15.34          15.34       0.28       0.28       0.31
+5         56.12         67.86          69.90       0.82       0.98       1.18
+6         30.56         38.02          45.48       0.32       0.45       0.57
+  pctImmig-10 pctSpeakOnlyEng pctNotSpeakEng pctLargHousFam pctLargHous
+1        3.30           85.68           1.37           4.81        4.17
+2        1.87           87.79           1.81           4.25        3.34
+3        1.78           93.11           1.14           2.97        2.05
+4        0.31           94.98           0.56           3.93        2.56
+5        1.22           94.64           0.39           5.23        3.11
+6        0.68           96.87           0.60           3.08        1.92
+  persPerOccupHous persPerOwnOccup persPerRenterOccup pctPersOwnOccup
+1             2.99            3.00               2.84           91.46
+2             2.70            2.83               1.96           89.03
+3             2.42            2.69               2.06           64.18
+4             2.37            2.51               2.20           58.18
+5             2.35            2.55               2.12           58.13
+6             2.28            2.37               2.16           57.81
+  pctPopDenseHous pctSmallHousUnits medNumBedrm houseVacant pctHousOccup
+1            0.39             11.06           3          64        98.37
+2            1.01             23.60           3         240        97.15
+3            2.03             47.46           3         544        95.68
+4            1.21             45.66           3         669        91.19
+5            2.94             55.64           2         333        92.45
+6            2.11             53.19           2        5119        91.81
+  pctHousOwnerOccup pctVacantBoarded pctVacant6up medYrHousBuilt pctHousWOphone
+1             91.01             3.12        37.50           1959           0.00
+2             84.88             0.00        18.33           1958           0.31
+3             57.79             0.92         7.54           1976           1.55
+4             54.89             2.54        57.85           1939           7.00
+5             53.57             3.90        42.64           1958           7.45
+6             55.50             2.09        26.22           1966           6.13
+  pctHousWOplumb ownHousLowQ ownHousMed ownHousUperQ ownHousQrange rentLowQ
+1           0.28      215900     262600       326900        111000      685
+2           0.14      136300     164200       199900         63600      467
+3           0.12       74700      90400       112000         37300      370
+4           0.87       36400      49600        66500         30100      195
+5           0.82       30600      43200        59500         28900      202
+6           0.31       37700      53900        73100         35400      215
+  rentMed rentUpperQ rentQrange medGrossRent medRentpctHousInc medOwnCostpct
+1    1001       1001        316         1001              23.8          21.1
+2     560        672        205          627              27.6          20.7
+3     428        520        150          484              24.1          21.7
+4     250        309        114          333              28.7          20.6
+5     283        362        160          332              32.2          23.2
+6     280        349        134          340              26.4          17.3
+  medOwnCostPctWO persEmergShelt persHomeless pctForeignBorn pctBornStateResid
+1            14.0             11            0          10.66             53.72
+2            12.5              0            0           8.30             77.17
+3            11.6             16            0           5.00             44.77
+4            14.5              0            0           2.04             88.71
+5            12.9              2            0           1.74             73.75
+6            11.7            327            4           1.49             64.35
+  pctSameHouse-5 pctSameCounty-5 pctSameState-5 numPolice policePerPop
+1          65.29           78.09          89.14       NaN          NaN
+2          71.27           90.22          96.12       NaN          NaN
+3          36.60           61.26          82.85       NaN          NaN
+4          56.70           90.17          96.24       NaN          NaN
+5          42.22           60.34          89.02       NaN          NaN
+6          42.29           70.61          85.66       NaN          NaN
+  policeField policeFieldPerPop policeCalls policCallPerPop policCallPerOffic
+1         NaN               NaN         NaN             NaN               NaN
+2         NaN               NaN         NaN             NaN               NaN
+3         NaN               NaN         NaN             NaN               NaN
+4         NaN               NaN         NaN             NaN               NaN
+5         NaN               NaN         NaN             NaN               NaN
+6         NaN               NaN         NaN             NaN               NaN
+  policePerPop2 racialMatch pctPolicWhite pctPolicBlack pctPolicHisp
+1           NaN         NaN           NaN           NaN          NaN
+2           NaN         NaN           NaN           NaN          NaN
+3           NaN         NaN           NaN           NaN          NaN
+4           NaN         NaN           NaN           NaN          NaN
+5           NaN         NaN           NaN           NaN          NaN
+6           NaN         NaN           NaN           NaN          NaN
+  pctPolicAsian pctPolicMinority officDrugUnits numDiffDrugsSeiz policAveOT
+1           NaN              NaN            NaN              NaN        NaN
+2           NaN              NaN            NaN              NaN        NaN
+3           NaN              NaN            NaN              NaN        NaN
+4           NaN              NaN            NaN              NaN        NaN
+5           NaN              NaN            NaN              NaN        NaN
+6           NaN              NaN            NaN              NaN        NaN
+  landArea popDensity pctUsePubTrans policCarsAvail policOperBudget
+1      6.5     1845.9           9.63            NaN             NaN
+2     10.6     2186.7           3.84            NaN             NaN
+3     10.6     2780.9           4.37            NaN             NaN
+4      5.2     3217.7           3.31            NaN             NaN
+5     11.5      974.2           0.38            NaN             NaN
+6     70.4     1995.7           0.97            NaN             NaN
+  pctPolicPatrol gangUnit pctOfficDrugUnit policBudgetPerPop murders murdPerPop
+1            NaN      NaN                0               NaN       0       0.00
+2            NaN      NaN                0               NaN       0       0.00
+3            NaN      NaN                0               NaN       3       8.30
+4            NaN      NaN                0               NaN       0       0.00
+5            NaN      NaN                0               NaN       0       0.00
+6            NaN      NaN                0               NaN       7       4.63
+  rapes rapesPerPop robberies robbbPerPop assaults assaultPerPop burglaries
+1     0        0.00         1        8.20        4         32.81         14
+2     1        4.25         5       21.26       24        102.05         57
+3     6       16.60        56      154.95       14         38.74        274
+4    10       57.86        10       57.86       33        190.93        225
+5   NaN         NaN         4       32.04       14        112.14         91
+6    77       50.98       136       90.05      449        297.29       2094
+  burglPerPop larcenies larcPerPop autoTheft autoTheftPerPop arsons
+1      114.85       138    1132.08        16          131.26      2
+2      242.37       376    1598.78        26          110.55      1
+3      758.14      1797    4972.19       136          376.30     22
+4     1301.78       716    4142.56        47          271.93    NaN
+5      728.93      1060    8490.87        91          728.93      5
+6     1386.46      7690    5091.64       454          300.60    134
+  arsonsPerPop violentPerPop nonViolPerPop
+1        16.41         41.02       1394.59
+2         4.25        127.56       1955.95
+3        60.87        218.59       6167.51
+4          NaN        306.64           NaN
+5        40.05           NaN       9988.79
+6        88.72        442.95       6867.42</code></pre>
+</div>
 </div>
 <ul>
 <li><strong>Number of features:</strong> 125</li>
@@ -1366,40 +1554,69 @@ head(oulad_data)
 <li><strong>Topic:</strong> socio-economic, law-enforcement, and crime measurements for U.S. communities</li>
 <li><strong>Missing-data handling:</strong> inspect and handle the many missing values, especially in the law-enforcement variables</li>
 <li><strong>Parsing / encoding:</strong> encode categorical identifiers such as <code>State</code> if they are retained</li>
-<li><strong>Merging / reshaping:</strong> none in the distributed file, but the UCI page notes that the source data were originally combined from several datasets</li>
 <li><strong>Other preparation:</strong> choose one crime variable as the target and remove overlapping crime subtotal variables that would leak information into that target</li>
 </ul>
+<!-- ## KDD Cup 1998
+
+Webpage: <https://archive.ics.uci.edu/dataset/129/kdd+cup+1998>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+kdd_cup_1998 <- fetch_ucirepo(id = 129)
+kdd_cup_1998_data <- kdd_cup_1998$data$original
+
+dim(kdd_cup_1998_data)
+head(kdd_cup_1998_data)
+```
+:::
+
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 191,779
+- **Response variable:** a clear regression target is `TARGET_D`, the donation amount in the original KDD target files
+- **Topic:** direct-marketing donation modeling
+- **Missing-data handling:** inspect and handle the missing values noted on the UCI page
+- **Parsing / encoding:** encode the large number of categorical marketing and demographic variables
+- **Merging / reshaping:** join the learning file with the provided target file information when reconstructing a modeling table -->
 </section>
-<section id="kdd-cup-1998" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="kdd-cup-1998"><span class="header-section-number">4.5</span> KDD Cup 1998</h2>
-<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/129/kdd+cup+1998" class="uri">https://archive.ics.uci.edu/dataset/129/kdd+cup+1998</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>kdd_cup_1998 <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">129</span>)</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>kdd_cup_1998_data <span class="ot">&lt;-</span> kdd_cup_1998<span class="sc">$</span>data<span class="sc">$</span>original</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(kdd_cup_1998_data)</span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(kdd_cup_1998_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><strong>Number of features:</strong> not clearly specified on the UCI page</li>
-<li><strong>Number of targets:</strong> not clearly specified on the UCI page</li>
-<li><strong>Number of observations:</strong> 191,779</li>
-<li><strong>Response variable:</strong> a clear regression target is <code>TARGET_D</code>, the donation amount in the original KDD target files</li>
-<li><strong>Topic:</strong> direct-marketing donation modeling</li>
-<li><strong>Missing-data handling:</strong> inspect and handle the missing values noted on the UCI page</li>
-<li><strong>Parsing / encoding:</strong> encode the large number of categorical marketing and demographic variables</li>
-<li><strong>Merging / reshaping:</strong> join the learning file with the provided target file information when reconstructing a modeling table</li>
-</ul>
-</section>
-<section id="real-estate-valuation" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="real-estate-valuation"><span class="header-section-number">4.6</span> Real Estate Valuation</h2>
+<section id="real-estate-valuation" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="real-estate-valuation"><span class="header-section-number">4.4</span> Real Estate Valuation</h2>
 <p>Webpage: <a href="https://archive.ics.uci.edu/dataset/477/real+estate+valuation+data+set" class="uri">https://archive.ics.uci.edu/dataset/477/real+estate+valuation+data+set</a></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>real_estate <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">477</span>)</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>real_estate_data <span class="ot">&lt;-</span> real_estate<span class="sc">$</span>data<span class="sc">$</span>original</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(real_estate_data)</span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(real_estate_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>real_estate <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">477</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>real_estate_data <span class="ot">&lt;-</span> real_estate<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(real_estate_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 414   8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(real_estate_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  No X1 transaction date X2 house age X3 distance to the nearest MRT station
+1  1            2012.917         32.0                               84.87882
+2  2            2012.917         19.5                              306.59470
+3  3            2013.583         13.3                              561.98450
+4  4            2013.500         13.3                              561.98450
+5  5            2012.833          5.0                              390.56840
+6  6            2012.667          7.1                             2175.03000
+  X4 number of convenience stores X5 latitude X6 longitude
+1                              10    24.98298     121.5402
+2                               9    24.98034     121.5395
+3                               5    24.98746     121.5439
+4                               5    24.98746     121.5439
+5                               5    24.97937     121.5425
+6                               3    24.96305     121.5125
+  Y house price of unit area
+1                       37.9
+2                       42.2
+3                       47.3
+4                       54.8
+5                       43.1
+6                       32.1</code></pre>
+</div>
 </div>
 <ul>
 <li><strong>Number of features:</strong> 6</li>
@@ -1407,31 +1624,33 @@ head(oulad_data)
 <li><strong>Number of observations:</strong> 414</li>
 <li><strong>Response variable:</strong> <code>Y house price of unit area</code></li>
 <li><strong>Topic:</strong> housing valuation in New Taipei City</li>
-<li><strong>Missing-data handling:</strong> none indicated on the UCI page</li>
 <li><strong>Parsing / encoding:</strong> convert <code>X1 transaction date</code> from its decimal-year format into a more interpretable time representation if needed</li>
-<li><strong>Merging / reshaping:</strong> import the Excel file cleanly and standardize variable names if desired</li>
 </ul>
-</section>
-<section id="ujiindoorloc" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="ujiindoorloc"><span class="header-section-number">4.7</span> UJIIndoorLoc</h2>
-<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/310/ujiindoorloc" class="uri">https://archive.ics.uci.edu/dataset/310/ujiindoorloc</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>ujiindoorloc <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">310</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>ujiindoorloc_data <span class="ot">&lt;-</span> ujiindoorloc<span class="sc">$</span>data<span class="sc">$</span>original</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ujiindoorloc_data)</span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ujiindoorloc_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><strong>Number of features:</strong> not clearly specified on the UCI page</li>
-<li><strong>Number of targets:</strong> 4 position-related outputs are described on the UCI page</li>
-<li><strong>Number of observations:</strong> 21,048 total, from 19,937 training rows and 1,111 validation rows</li>
-<li><strong>Response variable:</strong> for regression, the clearest targets are <code>Longitude</code> and <code>Latitude</code></li>
-<li><strong>Topic:</strong> indoor localization from WiFi fingerprints</li>
-<li><strong>Missing-data handling:</strong> none indicated on the UCI page, but the value <code>100</code> should be treated as a special code for undetected WAPs rather than as an ordinary numeric signal</li>
-<li><strong>Parsing / encoding:</strong> parse the UNIX <code>Timestamp</code> if time effects matter and decide how to treat categorical fields such as <code>BuildingID</code>, <code>SpaceID</code>, <code>UserID</code>, and <code>PhoneID</code></li>
-<li><strong>Merging / reshaping:</strong> combine <code>trainingData.csv</code> and <code>validationData.csv</code> if you want one unified analysis table</li>
-</ul>
+<!-- ## UJIIndoorLoc
+
+Webpage: <https://archive.ics.uci.edu/dataset/310/ujiindoorloc>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ujiindoorloc <- fetch_ucirepo(id = 310)
+ujiindoorloc_data <- ujiindoorloc$data$original
+
+dim(ujiindoorloc_data)
+head(ujiindoorloc_data)
+```
+:::
+
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** 4 position-related outputs are described on the UCI page
+- **Number of observations:** 21,048 total, from 19,937 training rows and 1,111 validation rows
+- **Response variable:** for regression, the clearest targets are `Longitude` and `Latitude`
+- **Topic:** indoor localization from WiFi fingerprints
+- **Missing-data handling:** none indicated on the UCI page, but the value `100` should be treated as a special code for undetected WAPs rather than as an ordinary numeric signal
+- **Parsing / encoding:** parse the UNIX `Timestamp` if time effects matter and decide how to treat categorical fields such as `BuildingID`, `SpaceID`, `UserID`, and `PhoneID`
+- **Merging / reshaping:** combine `trainingData.csv` and `validationData.csv` if you want one unified analysis table -->
 </section>
 </section>
 <section id="final-remark" class="level1" data-number="5">
