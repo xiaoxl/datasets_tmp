@@ -115,63 +115,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>244 observations</li>
 <li>7 variables</li>
-<li>response: <code>tip</code></li>
-</ul>
-</section>
-<section id="wage-islr" class="level1">
-<h1>Wage (ISLR)</h1>
-<p><a href="https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Wage">link</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Wage)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>Wage and other data for a group of 3000 male workers in the Mid-Atlantic region.</li>
-<li>3000 observations</li>
-<li>11 variables</li>
-<li>response: <code>wage</code></li>
-</ul>
-</section>
-<section id="college-islr" class="level1">
-<h1>College (ISLR)</h1>
-<p><a href="https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#College">link</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(College)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>Statistics for a large number of US Colleges from the 1995 issue of US News and World Report.</li>
-<li>777 observations</li>
-<li>18 variables</li>
-<li>response: typical chosse <code>Outstate</code> Out-of-state tuition</li>
-</ul>
-</section>
-<section id="hitters-islr" class="level1">
-<h1>Hitters (ISLR)</h1>
-<p><a href="https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Hitters">link</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Hitters)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>MLB baseball data 1986-1987</li>
-<li>322 observations</li>
-<li>20 variables</li>
-<li>response: <code>Salary</code></li>
-</ul>
-</section>
-<section id="carseats-islr" class="level1">
-<h1>Carseats (ISLR)</h1>
-<p><a href="https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Carseats">link</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Carseats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>A simulated data set containing sales of child car seats at 400 different stores.</li>
-<li>400 obseravations</li>
-<li>11 variables</li>
-<li>response: <code>Sales</code></li>
+<li>response: <code>tip</code> <!-- 
+
+# Wage (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Wage)
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ISLR)
+data(Wage)
+```
+:::
+
+
+- Wage and other data for a group of 3000 male workers in the Mid-Atlantic region.
+- 3000 observations
+- 11 variables
+- response: `wage`
+
+
+# College (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#College)
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ISLR)
+data(College)
+```
+:::
+
+
+
+- Statistics for a large number of US Colleges from the 1995 issue of US News and World Report.
+- 777 observations
+- 18 variables
+- response: typical chosse `Outstate` Out-of-state tuition
+
+# Hitters (ISLR)
+
+
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Hitters)
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ISLR)
+data(Hitters)
+```
+:::
+
+
+
+- MLB baseball data 1986-1987
+- 322 observations
+- 20 variables
+- response: `Salary`
+
+
+# Carseats (ISLR)
+
+[link](https://cran.r-project.org/web/packages/ISLR2/refman/ISLR2.html#Carseats)
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(ISLR)
+data(Carseats)
+```
+:::
+
+
+- A simulated data set containing sales of child car seats at 400 different stores.
+- 400 obseravations
+- 11 variables
+- response: `Sales` --></li>
 </ul>
 </section>
 <section id="student-performance-uci" class="level1">
@@ -182,10 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="data/student-combine.csv">combine</a></p>
 <p>The combined dataset is gotten by the following code.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"student-mat.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"student-por.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">merge</span>(d1, d2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"school"</span>, <span class="st">"sex"</span>, <span class="st">"age"</span>, <span class="st">"address"</span>, <span class="st">"famsize"</span>, <span class="st">"Pstatus"</span>, <span class="st">"Medu"</span>, <span class="st">"Fedu"</span>, <span class="st">"Mjob"</span>, <span class="st">"Fjob"</span>, <span class="st">"reason"</span>, <span class="st">"nursery"</span>, <span class="st">"internet"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"student-mat.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"student-por.csv"</span>, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>d3 <span class="ot">&lt;-</span> <span class="fu">merge</span>(d1, d2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"school"</span>, <span class="st">"sex"</span>, <span class="st">"age"</span>, <span class="st">"address"</span>, <span class="st">"famsize"</span>, <span class="st">"Pstatus"</span>, <span class="st">"Medu"</span>, <span class="st">"Fedu"</span>, <span class="st">"Mjob"</span>, <span class="st">"Fjob"</span>, <span class="st">"reason"</span>, <span class="st">"nursery"</span>, <span class="st">"internet"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>This data approach student achievement in secondary education of two Portuguese schools.</li>
@@ -194,10 +223,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>30 variables (with 3 additional grade variables)</li>
 <li>response: <code>G3</code> final grade</li>
 </ul>
+<!-- 
+# heart disease (UCI)
+
+[link](https://archive.ics.uci.edu/dataset/45/heart+disease)
+
+- Cleveland subset (303 observations) with 14 variables -->
 </section>
-<section id="heart-disease-uci" class="level1">
-<h1>heart disease (UCI)</h1>
-<p><a href="https://archive.ics.uci.edu/dataset/45/heart+disease">link</a></p>
+<section id="bike-sharing-uci" class="level1">
+<h1>Bike Sharing (UCI)</h1>
+<p><a href="https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset">link</a> <a href="data/day.csv">day</a> <a href="data/hour.csv">hour</a></p>
+<p>This dataset contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.</p>
+<ul>
+<li>13 variables</li>
+<li><code>day</code> contains 731 observations, <code>hour</code> contains 17379 observations</li>
+<li>response: <code>cnt</code> Total number of bike rentals</li>
+</ul>
 </section>
 
 </main>

@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.12">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Notes – UCI Regression Project Datasets</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cdaacfc258cb6f151192107f105ac881.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d9ea66fcd6c317012447f26e9c021348.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./uci_regression_datasets.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Notes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UCI Regression Project Datasets</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uci_regression_datasets.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#clean-datasets" id="toc-clean-datasets" class="nav-link active" data-scroll-target="#clean-datasets"><span class="header-section-number">3</span> Clean datasets</a>
+  <ul class="collapse">
+  <li><a href="#student-performance" id="toc-student-performance" class="nav-link" data-scroll-target="#student-performance"><span class="header-section-number">3.1</span> Student Performance</a></li>
+  <li><a href="#bike-sharing" id="toc-bike-sharing" class="nav-link" data-scroll-target="#bike-sharing"><span class="header-section-number">3.2</span> Bike Sharing</a></li>
+  <li><a href="#auto-mpg" id="toc-auto-mpg" class="nav-link" data-scroll-target="#auto-mpg"><span class="header-section-number">3.3</span> Auto MPG</a></li>
+  <li><a href="#wine-quality" id="toc-wine-quality" class="nav-link" data-scroll-target="#wine-quality"><span class="header-section-number">3.4</span> Wine Quality</a></li>
+  <li><a href="#heart-disease" id="toc-heart-disease" class="nav-link" data-scroll-target="#heart-disease"><span class="header-section-number">3.5</span> Heart Disease</a></li>
+  <li><a href="#forest-fires" id="toc-forest-fires" class="nav-link" data-scroll-target="#forest-fires"><span class="header-section-number">3.6</span> Forest Fires</a></li>
+  <li><a href="#energy-efficiency" id="toc-energy-efficiency" class="nav-link" data-scroll-target="#energy-efficiency"><span class="header-section-number">3.7</span> Energy Efficiency</a></li>
+  <li><a href="#airfoil-self-noise" id="toc-airfoil-self-noise" class="nav-link" data-scroll-target="#airfoil-self-noise"><span class="header-section-number">3.8</span> Airfoil Self-Noise</a></li>
+  <li><a href="#parkinsons-telemonitoring" id="toc-parkinsons-telemonitoring" class="nav-link" data-scroll-target="#parkinsons-telemonitoring"><span class="header-section-number">3.9</span> Parkinsons Telemonitoring</a></li>
+  <li><a href="#abalone" id="toc-abalone" class="nav-link" data-scroll-target="#abalone"><span class="header-section-number">3.10</span> Abalone</a></li>
+  <li><a href="#concrete-compressive-strength" id="toc-concrete-compressive-strength" class="nav-link" data-scroll-target="#concrete-compressive-strength"><span class="header-section-number">3.11</span> Concrete Compressive Strength</a></li>
+  <li><a href="#electrical-grid-stability-simulated-data" id="toc-electrical-grid-stability-simulated-data" class="nav-link" data-scroll-target="#electrical-grid-stability-simulated-data"><span class="header-section-number">3.12</span> Electrical Grid Stability Simulated Data</a></li>
+  <li><a href="#seoul-bike-sharing-demand" id="toc-seoul-bike-sharing-demand" class="nav-link" data-scroll-target="#seoul-bike-sharing-demand"><span class="header-section-number">3.13</span> Seoul Bike Sharing Demand</a></li>
+  <li><a href="#gas-turbine-co-and-nox-emission-data-set" id="toc-gas-turbine-co-and-nox-emission-data-set" class="nav-link" data-scroll-target="#gas-turbine-co-and-nox-emission-data-set"><span class="header-section-number">3.14</span> Gas Turbine CO and NOx Emission Data Set</a></li>
+  <li><a href="#superconductivity" id="toc-superconductivity" class="nav-link" data-scroll-target="#superconductivity"><span class="header-section-number">3.15</span> Superconductivity</a></li>
+  <li><a href="#appliances-energy-prediction" id="toc-appliances-energy-prediction" class="nav-link" data-scroll-target="#appliances-energy-prediction"><span class="header-section-number">3.16</span> Appliances Energy Prediction</a></li>
+  </ul></li>
+  <li><a href="#datasets-that-need-a-little-preprocessing" id="toc-datasets-that-need-a-little-preprocessing" class="nav-link" data-scroll-target="#datasets-that-need-a-little-preprocessing"><span class="header-section-number">4</span> Datasets that need a little preprocessing</a>
+  <ul class="collapse">
+  <li><a href="#adult" id="toc-adult" class="nav-link" data-scroll-target="#adult"><span class="header-section-number">4.1</span> Adult</a></li>
+  <li><a href="#air-quality" id="toc-air-quality" class="nav-link" data-scroll-target="#air-quality"><span class="header-section-number">4.2</span> Air Quality</a></li>
+  </ul></li>
+  <li><a href="#final-remark" id="toc-final-remark" class="nav-link" data-scroll-target="#final-remark"><span class="header-section-number">5</span> Final remark</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Notes</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This document lists UCI datasets that are potentially useful for regression projects.<br>
+For each dataset below, I include:</p>
+<ul>
+<li>the UCI webpage link,</li>
+<li>an R code chunk to import the dataset,</li>
+<li>basic information such as number of variables, number of observations, response variable, and topic.</li>
+</ul>
+<p>Most import examples use the <code>{ucimlrepo}</code> package, which can fetch datasets directly from the UCI Machine Learning Repository from within R.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ucimlrepo")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ucimlrepo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="clean-datasets" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Clean datasets</h1>
+<section id="student-performance" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="student-performance"><span class="header-section-number">3.1</span> Student Performance</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/320/student+performance" class="uri">https://archive.ics.uci.edu/dataset/320/student+performance</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>student_performance <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">320</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>student_performance_data <span class="ot">&lt;-</span> student_performance<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(student_performance_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 649  33</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(student_performance_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  school sex age address famsize Pstatus Medu Fedu     Mjob     Fjob     reason
+1     GP   F  18       U     GT3       A    4    4  at_home  teacher     course
+2     GP   F  17       U     GT3       T    1    1  at_home    other     course
+3     GP   F  15       U     LE3       T    1    1  at_home    other      other
+4     GP   F  15       U     GT3       T    4    2   health services       home
+5     GP   F  16       U     GT3       T    3    3    other    other       home
+6     GP   M  16       U     LE3       T    4    3 services    other reputation
+  guardian traveltime studytime failures schoolsup famsup paid activities
+1   mother          2         2        0       yes     no   no         no
+2   father          1         2        0        no    yes   no         no
+3   mother          1         2        0       yes     no   no         no
+4   mother          1         3        0        no    yes   no        yes
+5   father          1         2        0        no    yes   no         no
+6   mother          1         2        0        no    yes   no        yes
+  nursery higher internet romantic famrel freetime goout Dalc Walc health
+1     yes    yes       no       no      4        3     4    1    1      3
+2      no    yes      yes       no      5        3     3    1    1      3
+3     yes    yes      yes       no      4        3     2    2    3      3
+4     yes    yes      yes      yes      3        2     2    1    1      5
+5     yes    yes       no       no      4        3     2    1    2      5
+6     yes    yes      yes       no      5        4     2    1    2      5
+  absences G1 G2 G3
+1        4  0 11 11
+2        2  9 11 11
+3        6 12 13 12
+4        0 14 14 14
+5        0 11 13 13
+6        6 12 12 13</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 30</li>
+<li><strong>Number of targets:</strong> 3</li>
+<li><strong>Number of observations:</strong> 649</li>
+<li><strong>Response variable:</strong> official targets are <code>G1</code>, <code>G2</code>, and <code>G3</code>; for regression, <code>G3</code> is the usual choice</li>
+<li><strong>Topic:</strong> student achievement in secondary education</li>
+</ul>
+</section>
+<section id="bike-sharing" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="bike-sharing"><span class="header-section-number">3.2</span> Bike Sharing</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset" class="uri">https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bike_sharing <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">275</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bike_sharing_data <span class="ot">&lt;-</span> bike_sharing<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bike_sharing_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17379    17</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_sharing_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  instant     dteday season yr mnth hr holiday weekday workingday weathersit
+1       1 2011-01-01      1  0    1  0       0       6          0          1
+2       2 2011-01-01      1  0    1  1       0       6          0          1
+3       3 2011-01-01      1  0    1  2       0       6          0          1
+4       4 2011-01-01      1  0    1  3       0       6          0          1
+5       5 2011-01-01      1  0    1  4       0       6          0          1
+6       6 2011-01-01      1  0    1  5       0       6          0          2
+  temp  atemp  hum windspeed casual registered cnt
+1 0.24 0.2879 0.81    0.0000      3         13  16
+2 0.22 0.2727 0.80    0.0000      8         32  40
+3 0.22 0.2727 0.80    0.0000      5         27  32
+4 0.24 0.2879 0.75    0.0000      3         10  13
+5 0.24 0.2879 0.75    0.0000      0          1   1
+6 0.24 0.2576 0.75    0.0896      0          1   1</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 13</li>
+<li><strong>Number of targets:</strong> 3</li>
+<li><strong>Number of observations:</strong> 17,379 for the hourly data</li>
+<li><strong>Response variable:</strong> official targets are <code>casual</code>, <code>registered</code>, and <code>cnt</code>; <code>cnt</code> is the usual choice</li>
+<li><strong>Topic:</strong> bicycle rental demand with weather and seasonal information</li>
+</ul>
+</section>
+<section id="auto-mpg" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="auto-mpg"><span class="header-section-number">3.3</span> Auto MPG</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/ml/datasets/auto+mpg" class="uri">https://archive.ics.uci.edu/ml/datasets/auto+mpg</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>auto_mpg <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">9</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>auto_mpg_data <span class="ot">&lt;-</span> auto_mpg<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(auto_mpg_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 398   9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(auto_mpg_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   car_name cylinders displacement horsepower weight
+1 chevrolet,chevelle,malibu         8          307        130   3504
+2         buick,skylark,320         8          350        165   3693
+3        plymouth,satellite         8          318        150   3436
+4             amc,rebel,sst         8          304        150   3433
+5               ford,torino         8          302        140   3449
+6          ford,galaxie,500         8          429        198   4341
+  acceleration model_year origin mpg
+1         12.0         70      1  18
+2         11.5         70      1  15
+3         11.0         70      1  18
+4         12.0         70      1  16
+5         10.5         70      1  17
+6         10.0         70      1  15</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 7</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 398</li>
+<li><strong>Response variable:</strong> <code>mpg</code></li>
+<li><strong>Topic:</strong> fuel economy of automobiles</li>
+</ul>
+</section>
+<section id="wine-quality" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="wine-quality"><span class="header-section-number">3.4</span> Wine Quality</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/186/wine+quality" class="uri">https://archive.ics.uci.edu/dataset/186/wine+quality</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>wine_quality <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">186</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>wine_quality_data <span class="ot">&lt;-</span> wine_quality<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(wine_quality_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6497   13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wine_quality_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  fixed_acidity volatile_acidity citric_acid residual_sugar chlorides
+1           7.4             0.70        0.00            1.9     0.076
+2           7.8             0.88        0.00            2.6     0.098
+3           7.8             0.76        0.04            2.3     0.092
+4          11.2             0.28        0.56            1.9     0.075
+5           7.4             0.70        0.00            1.9     0.076
+6           7.4             0.66        0.00            1.8     0.075
+  free_sulfur_dioxide total_sulfur_dioxide density   pH sulphates alcohol
+1                  11                   34  0.9978 3.51      0.56     9.4
+2                  25                   67  0.9968 3.20      0.68     9.8
+3                  15                   54  0.9970 3.26      0.65     9.8
+4                  17                   60  0.9980 3.16      0.58     9.8
+5                  11                   34  0.9978 3.51      0.56     9.4
+6                  13                   40  0.9978 3.51      0.56     9.4
+  quality color
+1       5   red
+2       5   red
+3       5   red
+4       6   red
+5       5   red
+6       5   red</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 12</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 6,497 combined across red and white wine data.</li>
+<li><strong>Response variable:</strong> <code>quality</code></li>
+<li><strong>Topic:</strong> predicting wine quality from physicochemical measurements</li>
+</ul>
+</section>
+<section id="heart-disease" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="heart-disease"><span class="header-section-number">3.5</span> Heart Disease</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/45/heart+disease" class="uri">https://archive.ics.uci.edu/dataset/45/heart+disease</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>heart_disease <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">45</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>heart_disease_data <span class="ot">&lt;-</span> heart_disease<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(heart_disease_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 303  14</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(heart_disease_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age sex cp trestbps chol fbs restecg thalach exang oldpeak slope ca thal num
+1  63   1  1      145  233   1       2     150     0     2.3     3  0    6   0
+2  67   1  4      160  286   0       2     108     1     1.5     2  3    3   2
+3  67   1  4      120  229   0       2     129     1     2.6     2  2    7   1
+4  37   1  3      130  250   0       0     187     0     3.5     3  0    3   0
+5  41   0  2      130  204   0       2     172     0     1.4     1  0    3   0
+6  56   1  2      120  236   0       0     178     0     0.8     1  0    3   0</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 13</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 303 for the Cleveland subset typically used in teaching</li>
+<li><strong>Response variable:</strong> official target is <code>num</code>, and treat it as a severity score (while the orginal num is only integer).</li>
+<li><strong>Topic:</strong> clinical measurements related to heart disease</li>
+</ul>
+</section>
+<section id="forest-fires" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="forest-fires"><span class="header-section-number">3.6</span> Forest Fires</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/162/forest+fires" class="uri">https://archive.ics.uci.edu/dataset/162/forest+fires</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>forest_fires <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">162</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>forest_fires_data <span class="ot">&lt;-</span> forest_fires<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(forest_fires_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 517  13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(forest_fires_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  X Y month day FFMC  DMC    DC  ISI temp RH wind rain area
+1 7 5   mar fri 86.2 26.2  94.3  5.1  8.2 51  6.7  0.0    0
+2 7 4   oct tue 90.6 35.4 669.1  6.7 18.0 33  0.9  0.0    0
+3 7 4   oct sat 90.6 43.7 686.9  6.7 14.6 33  1.3  0.0    0
+4 8 6   mar fri 91.7 33.3  77.5  9.0  8.3 97  4.0  0.2    0
+5 8 6   mar sun 89.3 51.3 102.2  9.6 11.4 99  1.8  0.0    0
+6 8 6   aug sun 92.3 85.3 488.0 14.7 22.2 29  5.4  0.0    0</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 12</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 517</li>
+<li><strong>Response variable:</strong> <code>area</code></li>
+<li><strong>Topic:</strong> predicting burned area of forest fires using weather and fire indices</li>
+</ul>
+</section>
+<section id="energy-efficiency" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="energy-efficiency"><span class="header-section-number">3.7</span> Energy Efficiency</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/242/energy+efficiency" class="uri">https://archive.ics.uci.edu/dataset/242/energy+efficiency</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>energy_efficiency <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">242</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>energy_efficiency_data <span class="ot">&lt;-</span> energy_efficiency<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(energy_efficiency_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 768  10</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(energy_efficiency_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    X1    X2    X3     X4 X5 X6 X7 X8    Y1    Y2
+1 0.98 514.5 294.0 110.25  7  2  0  0 15.55 21.33
+2 0.98 514.5 294.0 110.25  7  3  0  0 15.55 21.33
+3 0.98 514.5 294.0 110.25  7  4  0  0 15.55 21.33
+4 0.98 514.5 294.0 110.25  7  5  0  0 15.55 21.33
+5 0.90 563.5 318.5 122.50  7  2  0  0 20.84 28.28
+6 0.90 563.5 318.5 122.50  7  3  0  0 21.46 25.38</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 8</li>
+<li><strong>Number of targets:</strong> 2</li>
+<li><strong>Number of observations:</strong> 768</li>
+<li><strong>Response variable:</strong> official targets are <code>Y1</code> and <code>Y2</code></li>
+<li><strong>Topic:</strong> building energy efficiency</li>
+</ul>
+</section>
+<section id="airfoil-self-noise" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="airfoil-self-noise"><span class="header-section-number">3.8</span> Airfoil Self-Noise</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/291/airfoil+self+noise" class="uri">https://archive.ics.uci.edu/dataset/291/airfoil+self+noise</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>airfoil_self_noise <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">291</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>airfoil_self_noise_data <span class="ot">&lt;-</span> airfoil_self_noise<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(airfoil_self_noise_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1503    6</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(airfoil_self_noise_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  frequency attack-angle chord-length free-stream-velocity
+1       800            0       0.3048                 71.3
+2      1000            0       0.3048                 71.3
+3      1250            0       0.3048                 71.3
+4      1600            0       0.3048                 71.3
+5      2000            0       0.3048                 71.3
+6      2500            0       0.3048                 71.3
+  suction-side-displacement-thickness scaled-sound-pressure
+1                          0.00266337               126.201
+2                          0.00266337               125.201
+3                          0.00266337               125.951
+4                          0.00266337               127.591
+5                          0.00266337               127.461
+6                          0.00266337               125.571</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 5</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 1,503</li>
+<li><strong>Response variable:</strong> <code>scaled-sound-pressure</code></li>
+<li><strong>Topic:</strong> aerodynamic and acoustic properties of airfoils</li>
+</ul>
+<!-- 
+## Yacht Hydrodynamics
+
+Webpage: <https://archive.ics.uci.edu/dataset/243/yacht+hydrodynamics>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+yacht_hydrodynamics <- fetch_ucirepo(id = 243)
+yacht_hydrodynamics_data <- yacht_hydrodynamics$data$original
+
+dim(yacht_hydrodynamics_data)
+head(yacht_hydrodynamics_data)
+```
+:::
+
+
+- **Number of features:** 6
+- **Number of targets:** 1
+- **Number of observations:** 308
+- **Response variable:** residuary resistance per unit weight of displacement
+- **Topic:** yacht design and hydrodynamic resistance -->
+</section>
+<section id="parkinsons-telemonitoring" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="parkinsons-telemonitoring"><span class="header-section-number">3.9</span> Parkinsons Telemonitoring</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring" class="uri">https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>parkinsons_telemonitoring <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">189</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>parkinsons_telemonitoring_data <span class="ot">&lt;-</span> parkinsons_telemonitoring<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(parkinsons_telemonitoring_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5875   22</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(parkinsons_telemonitoring_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  subject# age sex test_time Jitter(%) Jitter(Abs) Jitter:RAP Jitter:PPQ5
+1        1  72   0    5.6431   0.00662    3.38e-05    0.00401     0.00317
+2        1  72   0   12.6660   0.00300    1.68e-05    0.00132     0.00150
+3        1  72   0   19.6810   0.00481    2.46e-05    0.00205     0.00208
+4        1  72   0   25.6470   0.00528    2.66e-05    0.00191     0.00264
+5        1  72   0   33.6420   0.00335    2.01e-05    0.00093     0.00130
+6        1  72   0   40.6520   0.00353    2.29e-05    0.00119     0.00159
+  Jitter:DDP Shimmer Shimmer(dB) Shimmer:APQ3 Shimmer:APQ5 Shimmer:APQ11
+1    0.01204 0.02565       0.230      0.01438      0.01309       0.01662
+2    0.00395 0.02024       0.179      0.00994      0.01072       0.01689
+3    0.00616 0.01675       0.181      0.00734      0.00844       0.01458
+4    0.00573 0.02309       0.327      0.01106      0.01265       0.01963
+5    0.00278 0.01703       0.176      0.00679      0.00929       0.01819
+6    0.00357 0.02227       0.214      0.01006      0.01337       0.02263
+  Shimmer:DDA      NHR    HNR    RPDE     DFA     PPE motor_UPDRS total_UPDRS
+1     0.04314 0.014290 21.640 0.41888 0.54842 0.16006      28.199      34.398
+2     0.02982 0.011112 27.183 0.43493 0.56477 0.10810      28.447      34.894
+3     0.02202 0.020220 23.047 0.46222 0.54405 0.21014      28.695      35.389
+4     0.03317 0.027837 24.445 0.48730 0.57794 0.33277      28.905      35.810
+5     0.02036 0.011625 26.126 0.47188 0.56122 0.19361      29.187      36.375
+6     0.03019 0.009438 22.946 0.53949 0.57243 0.19500      29.435      36.870</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 19</li>
+<li><strong>Number of targets:</strong> 2</li>
+<li><strong>Number of observations:</strong> 5,875</li>
+<li><strong>Response variable:</strong> official targets are <code>motor_UPDRS</code> and <code>total_UPDRS</code></li>
+<li><strong>Topic:</strong> remote monitoring of Parkinson’s disease symptoms from voice measures</li>
+</ul>
+</section>
+<section id="abalone" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="abalone"><span class="header-section-number">3.10</span> Abalone</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/1/abalone" class="uri">https://archive.ics.uci.edu/dataset/1/abalone</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>abalone <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">1</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>abalone_data <span class="ot">&lt;-</span> abalone<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(abalone_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4177    9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(abalone_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sex Length Diameter Height Whole_weight Shucked_weight Viscera_weight
+1   M  0.455    0.365  0.095       0.5140         0.2245         0.1010
+2   M  0.350    0.265  0.090       0.2255         0.0995         0.0485
+3   F  0.530    0.420  0.135       0.6770         0.2565         0.1415
+4   M  0.440    0.365  0.125       0.5160         0.2155         0.1140
+5   I  0.330    0.255  0.080       0.2050         0.0895         0.0395
+6   I  0.425    0.300  0.095       0.3515         0.1410         0.0775
+  Shell_weight Rings
+1        0.150    15
+2        0.070     7
+3        0.210     9
+4        0.155    10
+5        0.055     7
+6        0.120     8</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 8</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 4,177</li>
+<li><strong>Response variable:</strong> <code>Rings</code></li>
+<li><strong>Topic:</strong> predicting abalone age from physical measurements</li>
+</ul>
+</section>
+<section id="concrete-compressive-strength" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="concrete-compressive-strength"><span class="header-section-number">3.11</span> Concrete Compressive Strength</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength" class="uri">https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>concrete_strength <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">165</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>concrete_strength_data <span class="ot">&lt;-</span> concrete_strength<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(concrete_strength_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1030    9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(concrete_strength_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Cement Blast Furnace Slag Fly Ash Water Superplasticizer Coarse Aggregate
+1  540.0                0.0       0   162              2.5           1040.0
+2  540.0                0.0       0   162              2.5           1055.0
+3  332.5              142.5       0   228              0.0            932.0
+4  332.5              142.5       0   228              0.0            932.0
+5  198.6              132.4       0   192              0.0            978.4
+6  266.0              114.0       0   228              0.0            932.0
+  Fine Aggregate Age Concrete compressive strength
+1          676.0  28                         79.99
+2          676.0  28                         61.89
+3          594.0 270                         40.27
+4          594.0 365                         41.05
+5          825.5 360                         44.30
+6          670.0  90                         47.03</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 8</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 1,030</li>
+<li><strong>Response variable:</strong> <code>Concrete compressive strength</code></li>
+<li><strong>Topic:</strong> civil engineering and material strength</li>
+</ul>
+</section>
+<section id="electrical-grid-stability-simulated-data" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="electrical-grid-stability-simulated-data"><span class="header-section-number">3.12</span> Electrical Grid Stability Simulated Data</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data" class="uri">https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>electrical_grid_stability <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">471</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>electrical_grid_stability_data <span class="ot">&lt;-</span> electrical_grid_stability<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(electrical_grid_stability_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10000    14</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(electrical_grid_stability_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       tau1     tau2     tau3     tau4       p1         p2         p3
+1 2.9590600 3.079885 8.381025 9.780754 3.763085 -0.7826036 -1.2573948
+2 9.3040972 4.902524 3.047541 1.369357 5.067812 -1.9400584 -1.8727417
+3 8.9717069 8.848428 3.046479 1.214518 3.405158 -1.2074556 -1.2772101
+4 0.7164148 7.669600 4.486641 2.340563 3.963791 -1.0274733 -1.9389442
+5 3.1341116 7.608772 4.943759 9.857573 3.525811 -1.1255310 -1.8459749
+6 6.9992087 9.109247 3.784066 4.267788 4.429669 -1.8571392 -0.6703968
+          p4        g1         g2        g3        g4         stab    stabf
+1 -1.7230863 0.6504565 0.85957811 0.8874449 0.9580340  0.055347489 unstable
+2 -1.2550120 0.4134406 0.86241408 0.5621391 0.7817599 -0.005957464   stable
+3 -0.9204924 0.1630410 0.76668866 0.8394440 0.1098532  0.003470879 unstable
+4 -0.9973736 0.4462089 0.97674408 0.9293805 0.3627178  0.028870543 unstable
+5 -0.5543050 0.7971095 0.45544995 0.6569467 0.8209235  0.049860373 unstable
+6 -1.9021328 0.2617929 0.07792967 0.5428839 0.4699310 -0.017384907   stable</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 12</li>
+<li><strong>Number of targets:</strong> 2</li>
+<li><strong>Number of observations:</strong> 10,000</li>
+<li><strong>Response variable:</strong> official targets are <code>stab</code> and <code>stabf</code>; for regression, use <code>stab</code></li>
+<li><strong>Topic:</strong> simulated electrical grid stability</li>
+</ul>
+</section>
+<section id="seoul-bike-sharing-demand" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="seoul-bike-sharing-demand"><span class="header-section-number">3.13</span> Seoul Bike Sharing Demand</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand" class="uri">https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>seoul_bike_sharing <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">560</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>seoul_bike_sharing_data <span class="ot">&lt;-</span> seoul_bike_sharing<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(seoul_bike_sharing_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8760   14</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(seoul_bike_sharing_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Date Rented Bike Count Hour Temperature Humidity Wind speed Visibility
+1 1/12/2017               254    0        -5.2       37        2.2       2000
+2 1/12/2017               204    1        -5.5       38        0.8       2000
+3 1/12/2017               173    2        -6.0       39        1.0       2000
+4 1/12/2017               107    3        -6.2       40        0.9       2000
+5 1/12/2017                78    4        -6.0       36        2.3       2000
+6 1/12/2017               100    5        -6.4       37        1.5       2000
+  Dew point temperature Solar Radiation Rainfall Snowfall Seasons    Holiday
+1                 -17.6               0        0        0  Winter No Holiday
+2                 -17.6               0        0        0  Winter No Holiday
+3                 -17.7               0        0        0  Winter No Holiday
+4                 -17.6               0        0        0  Winter No Holiday
+5                 -18.6               0        0        0  Winter No Holiday
+6                 -18.7               0        0        0  Winter No Holiday
+  Functioning Day
+1             Yes
+2             Yes
+3             Yes
+4             Yes
+5             Yes
+6             Yes</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 13</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 8,760</li>
+<li><strong>Response variable:</strong> <code>Rented Bike Count</code></li>
+<li><strong>Topic:</strong> urban bike rental demand with weather and seasonal information</li>
+</ul>
+</section>
+<section id="gas-turbine-co-and-nox-emission-data-set" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="gas-turbine-co-and-nox-emission-data-set"><span class="header-section-number">3.14</span> Gas Turbine CO and NOx Emission Data Set</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set" class="uri">https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>gas_turbine <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">551</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>gas_turbine_data <span class="ot">&lt;-</span> gas_turbine<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gas_turbine_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36733    12</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gas_turbine_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year     AT     AP     AH   AFDP   GTEP    TIT    TAT    TEY    CDP      CO
+1 2011 4.5878 1018.7 83.675 3.5758 23.979 1086.2 549.83 134.67 11.898 0.32663
+2 2011 4.2932 1018.3 84.235 3.5709 23.951 1086.1 550.05 134.67 11.892 0.44784
+3 2011 3.9045 1018.4 84.858 3.5828 23.990 1086.5 550.19 135.10 12.042 0.45144
+4 2011 3.7436 1018.3 85.434 3.5808 23.911 1086.5 550.17 135.03 11.990 0.23107
+5 2011 3.7516 1017.8 85.182 3.5781 23.917 1085.9 550.00 134.67 11.910 0.26747
+6 2011 3.8858 1017.7 83.946 3.5824 23.903 1086.0 549.98 134.67 11.868 0.23473
+     NOX
+1 81.952
+2 82.377
+3 83.776
+4 82.505
+5 82.028
+6 81.748</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of variables:</strong> 10</li>
+<li><strong>Number of observations:</strong> 36,733</li>
+<li><strong>Response variable:</strong> official targets are <code>CO</code> and <code>NOX</code></li>
+<li><strong>Topic:</strong> gas turbine emissions and sensor measurements</li>
+</ul>
+</section>
+<section id="superconductivity" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="superconductivity"><span class="header-section-number">3.15</span> Superconductivity</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/464/superconductivty+data" class="uri">https://archive.ics.uci.edu/dataset/464/superconductivty+data</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>superconductivity <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">464</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>superconductivity_data <span class="ot">&lt;-</span> superconductivity<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(superconductivity_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 21263    82</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(superconductivity_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  number_of_elements mean_atomic_mass wtd_mean_atomic_mass gmean_atomic_mass
+1                  4         88.94447             57.86269          66.36159
+2                  5         92.72921             58.51842          73.13279
+3                  4         88.94447             57.88524          66.36159
+4                  4         88.94447             57.87397          66.36159
+5                  4         88.94447             57.84014          66.36159
+6                  4         88.94447             57.79504          66.36159
+  wtd_gmean_atomic_mass entropy_atomic_mass wtd_entropy_atomic_mass
+1              36.11661            1.181795               1.0623955
+2              36.39660            1.449309               1.0577551
+3              36.12251            1.181795               0.9759805
+4              36.11956            1.181795               1.0222909
+5              36.11072            1.181795               1.1292237
+6              36.09893            1.181795               1.2252028
+  range_atomic_mass wtd_range_atomic_mass std_atomic_mass wtd_std_atomic_mass
+1          122.9061              31.79492        51.96883            53.62253
+2          122.9061              36.16194        47.09463            53.97987
+3          122.9061              35.74110        51.96883            53.65627
+4          122.9061              33.76801        51.96883            53.63940
+5          122.9061              27.84874        51.96883            53.58877
+6          122.9061              20.68746        51.96883            53.52115
+  mean_fie wtd_mean_fie gmean_fie wtd_gmean_fie entropy_fie wtd_entropy_fie
+1  775.425     1010.269  718.1529      938.0168    1.305967       0.7914878
+2  766.440     1010.613  720.6055      938.7454    1.544145       0.8070782
+3  775.425     1010.820  718.1529      939.0090    1.305967       0.7736202
+4  775.425     1010.544  718.1529      938.5128    1.305967       0.7832067
+5  775.425     1009.717  718.1529      937.0256    1.305967       0.8052296
+6  775.425     1008.614  718.1529      935.0463    1.305967       0.8247426
+  range_fie wtd_range_fie  std_fie wtd_std_fie mean_atomic_radius
+1     810.6      735.9857 323.8118    355.5630             160.25
+2     810.6      743.1643 290.1830    354.9635             161.20
+3     810.6      743.1643 323.8118    354.8042             160.25
+4     810.6      739.5750 323.8118    355.1839             160.25
+5     810.6      728.8071 323.8118    356.3193             160.25
+6     810.6      714.4500 323.8118    357.8246             160.25
+  wtd_mean_atomic_radius gmean_atomic_radius wtd_gmean_atomic_radius
+1               105.5143            136.1260                84.52842
+2               104.9714            141.4652                84.37017
+3               104.6857            136.1260                84.21457
+4               105.1000            136.1260                84.37135
+5               106.3429            136.1260                84.84344
+6               108.0000            136.1260                85.47701
+  entropy_atomic_radius wtd_entropy_atomic_radius range_atomic_radius
+1              1.259244                  1.207040                 205
+2              1.508328                  1.204115                 205
+3              1.259244                  1.132547                 205
+4              1.259244                  1.173033                 205
+5              1.259244                  1.261194                 205
+6              1.259244                  1.331339                 205
+  wtd_range_atomic_radius std_atomic_radius wtd_std_atomic_radius mean_Density
+1                42.91429          75.23754              69.23557     4654.357
+2                50.57143          67.32132              68.00882     5821.486
+3                49.31429          75.23754              67.79771     4654.357
+4                46.11429          75.23754              68.52166     4654.357
+5                36.51429          75.23754              70.63445     4654.357
+6                23.71429          75.23754              73.32413     4654.357
+  wtd_mean_Density gmean_Density wtd_gmean_Density entropy_Density
+1         2961.502      724.9532          53.54381        1.033129
+2         3021.017     1237.0951          54.09572        1.314442
+3         2999.159      724.9532          53.97402        1.033129
+4         2980.331      724.9532          53.75849        1.033129
+5         2923.845      724.9532          53.11703        1.033129
+6         2848.531      724.9532          52.27364        1.033129
+  wtd_entropy_Density range_Density wtd_range_Density std_Density
+1           0.8145982      8958.571          1579.583    3306.163
+2           0.9148022     10488.571          1667.383    3767.403
+3           0.7603052      8958.571          1667.383    3306.163
+4           0.7888885      8958.571          1623.483    3306.163
+5           0.8598109      8958.571          1491.783    3306.163
+6           0.9323687      8958.571          1316.183    3306.163
+  wtd_std_Density mean_ElectronAffinity wtd_mean_ElectronAffinity
+1        3572.597               81.8375                  111.7271
+2        3632.649               90.8900                  112.3164
+3        3592.019               81.8375                  112.2136
+4        3582.371               81.8375                  111.9704
+5        3552.669               81.8375                  111.2407
+6        3511.262               81.8375                  110.2679
+  gmean_ElectronAffinity wtd_gmean_ElectronAffinity entropy_ElectronAffinity
+1               60.12318                   99.41468                 1.159687
+2               69.83331                  101.16640                 1.427997
+3               60.12318                  101.08215                 1.159687
+4               60.12318                  100.24495                 1.159687
+5               60.12318                   97.77472                 1.159687
+6               60.12318                   94.57550                 1.159687
+  wtd_entropy_ElectronAffinity range_ElectronAffinity
+1                    0.7873817                 127.05
+2                    0.8386665                 127.05
+3                    0.7860067                 127.05
+4                    0.7869005                 127.05
+5                    0.7873962                 127.05
+6                    0.7844615                 127.05
+  wtd_range_ElectronAffinity std_ElectronAffinity wtd_std_ElectronAffinity
+1                   80.98714             51.43371                 42.55840
+2                   81.20786             49.43817                 41.66762
+3                   81.20786             51.43371                 41.63988
+4                   81.09750             51.43371                 42.10234
+5                   80.76643             51.43371                 43.45206
+6                   80.32500             51.43371                 45.17068
+  mean_FusionHeat wtd_mean_FusionHeat gmean_FusionHeat wtd_gmean_FusionHeat
+1          6.9055            3.846857         3.479475             1.040986
+2          7.7844            3.796857         4.403790             1.035251
+3          6.9055            3.822571         3.479475             1.037439
+4          6.9055            3.834714         3.479475             1.039211
+5          6.9055            3.871143         3.479475             1.044545
+6          6.9055            3.919714         3.479475             1.051699
+  entropy_FusionHeat wtd_entropy_FusionHeat range_FusionHeat
+1           1.088575              0.9949982           12.878
+2           1.374977              1.0730938           12.878
+3           1.088575              0.9274794           12.878
+4           1.088575              0.9640310           12.878
+5           1.088575              1.0449695           12.878
+6           1.088575              1.1118503           12.878
+  wtd_range_FusionHeat std_FusionHeat wtd_std_FusionHeat
+1             1.744571       4.599064           4.666920
+2             1.595714       4.473363           4.603000
+3             1.757143       4.599064           4.649635
+4             1.744571       4.599064           4.658301
+5             1.744571       4.599064           4.684014
+6             1.744571       4.599064           4.717642
+  mean_ThermalConductivity wtd_mean_ThermalConductivity
+1                 107.7566                     61.01519
+2                 172.2053                     61.37233
+3                 107.7566                     60.94376
+4                 107.7566                     60.97947
+5                 107.7566                     61.08662
+6                 107.7566                     61.22947
+  gmean_ThermalConductivity wtd_gmean_ThermalConductivity
+1                  7.062488                     0.6219795
+2                 16.064228                     0.6197346
+3                  7.062488                     0.6190947
+4                  7.062488                     0.6205354
+5                  7.062488                     0.6248777
+6                  7.062488                     0.6307148
+  entropy_ThermalConductivity wtd_entropy_ThermalConductivity
+1                   0.3081480                       0.2628483
+2                   0.8474042                       0.5677061
+3                   0.3081480                       0.2504774
+4                   0.3081480                       0.2570451
+5                   0.3081480                       0.2728199
+6                   0.3081480                       0.2882356
+  range_ThermalConductivity wtd_range_ThermalConductivity
+1                  399.9734                      57.12767
+2                  429.9734                      51.41338
+3                  399.9734                      57.12767
+4                  399.9734                      57.12767
+5                  399.9734                      57.12767
+6                  399.9734                      57.12767
+  std_ThermalConductivity wtd_std_ThermalConductivity mean_Valence
+1                168.8542                    138.5172         2.25
+2                198.5546                    139.6309         2.00
+3                168.8542                    138.5406         2.25
+4                168.8542                    138.5289         2.25
+5                168.8542                    138.4937         2.25
+6                168.8542                    138.4466         2.25
+  wtd_mean_Valence gmean_Valence wtd_gmean_Valence entropy_Valence
+1         2.257143      2.213364          2.219783        1.368922
+2         2.257143      1.888175          2.210679        1.557113
+3         2.271429      2.213364          2.232679        1.368922
+4         2.264286      2.213364          2.226222        1.368922
+5         2.242857      2.213364          2.206963        1.368922
+6         2.214286      2.213364          2.181543        1.368922
+  wtd_entropy_Valence range_Valence wtd_range_Valence std_Valence
+1            1.066221             1          1.085714   0.4330127
+2            1.047221             2          1.128571   0.6324555
+3            1.029175             1          1.114286   0.4330127
+4            1.048834             1          1.100000   0.4330127
+5            1.096052             1          1.057143   0.4330127
+6            1.141474             1          1.000000   0.4330127
+  wtd_std_Valence critical_temp
+1       0.4370588            29
+2       0.4686063            26
+3       0.4446966            19
+4       0.4409521            22
+5       0.4288095            23
+6       0.4103259            23</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 81</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 21,263</li>
+<li><strong>Response variable:</strong> <code>critical_temp</code></li>
+<li><strong>Topic:</strong> materials science and superconductivity</li>
+</ul>
+</section>
+<section id="appliances-energy-prediction" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="appliances-energy-prediction"><span class="header-section-number">3.16</span> Appliances Energy Prediction</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction" class="uri">https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>appliances_energy <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">374</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>appliances_energy_data <span class="ot">&lt;-</span> appliances_energy<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(appliances_energy_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19735    29</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(appliances_energy_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                date Appliances lights    T1     RH_1   T2     RH_2    T3
+1 2016-01-1117:00:00         60     30 19.89 47.59667 19.2 44.79000 19.79
+2 2016-01-1117:10:00         60     30 19.89 46.69333 19.2 44.72250 19.79
+3 2016-01-1117:20:00         50     30 19.89 46.30000 19.2 44.62667 19.79
+4 2016-01-1117:30:00         50     40 19.89 46.06667 19.2 44.59000 19.79
+5 2016-01-1117:40:00         60     40 19.89 46.33333 19.2 44.53000 19.79
+6 2016-01-1117:50:00         50     40 19.89 46.02667 19.2 44.50000 19.79
+      RH_3       T4     RH_4       T5  RH_5       T6     RH_6       T7     RH_7
+1 44.73000 19.00000 45.56667 17.16667 55.20 7.026667 84.25667 17.20000 41.62667
+2 44.79000 19.00000 45.99250 17.16667 55.20 6.833333 84.06333 17.20000 41.56000
+3 44.93333 18.92667 45.89000 17.16667 55.09 6.560000 83.15667 17.20000 41.43333
+4 45.00000 18.89000 45.72333 17.16667 55.09 6.433333 83.42333 17.13333 41.29000
+5 45.00000 18.89000 45.53000 17.20000 55.09 6.366667 84.89333 17.20000 41.23000
+6 44.93333 18.89000 45.73000 17.13333 55.03 6.300000 85.76667 17.13333 41.26000
+    T8     RH_8       T9  RH_9 T_out Press_mm_hg RH_out Windspeed Visibility
+1 18.2 48.90000 17.03333 45.53  6.60       733.5     92  7.000000   63.00000
+2 18.2 48.86333 17.06667 45.56  6.48       733.6     92  6.666667   59.16667
+3 18.2 48.73000 17.00000 45.50  6.37       733.7     92  6.333333   55.33333
+4 18.1 48.59000 17.00000 45.40  6.25       733.8     92  6.000000   51.50000
+5 18.1 48.59000 17.00000 45.40  6.13       733.9     92  5.666667   47.66667
+6 18.1 48.59000 17.00000 45.29  6.02       734.0     92  5.333333   43.83333
+  Tdewpoint      rv1      rv2
+1       5.3 13.27543 13.27543
+2       5.2 18.60619 18.60619
+3       5.1 28.64267 28.64267
+4       5.0 45.41039 45.41039
+5       4.9 10.08410 10.08410
+6       4.8 44.91948 44.91948</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 28</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 19,735</li>
+<li><strong>Response variable:</strong> <code>Appliances</code></li>
+<li><strong>Topic:</strong> household energy use prediction</li>
+</ul>
+</section>
+</section>
+<section id="datasets-that-need-a-little-preprocessing" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Datasets that need a little preprocessing</h1>
+<section id="adult" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="adult"><span class="header-section-number">4.1</span> Adult</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/2/adult" class="uri">https://archive.ics.uci.edu/dataset/2/adult</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>adult <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">2</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>adult_data <span class="ot">&lt;-</span> adult<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(adult_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 48842    15</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(adult_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age        workclass fnlwgt education education-num     marital-status
+1  39        State-gov  77516 Bachelors            13      Never-married
+2  50 Self-emp-not-inc  83311 Bachelors            13 Married-civ-spouse
+3  38          Private 215646   HS-grad             9           Divorced
+4  53          Private 234721      11th             7 Married-civ-spouse
+5  28          Private 338409 Bachelors            13 Married-civ-spouse
+6  37          Private 284582   Masters            14 Married-civ-spouse
+         occupation  relationship  race    sex capital-gain capital-loss
+1      Adm-clerical Not-in-family White   Male         2174            0
+2   Exec-managerial       Husband White   Male            0            0
+3 Handlers-cleaners Not-in-family White   Male            0            0
+4 Handlers-cleaners       Husband Black   Male            0            0
+5    Prof-specialty          Wife Black Female            0            0
+6   Exec-managerial          Wife White Female            0            0
+  hours-per-week native-country income
+1             40  United-States  &lt;=50K
+2             13  United-States  &lt;=50K
+3             40  United-States  &lt;=50K
+4             40  United-States  &lt;=50K
+5             40           Cuba  &lt;=50K
+6             40  United-States  &lt;=50K</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 14</li>
+<li><strong>Number of targets:</strong> 1</li>
+<li><strong>Number of observations:</strong> 48,842</li>
+<li><strong>Response variable:</strong> if you want regression, a workable quantitative outcome is <code>hours-per-week</code></li>
+<li><strong>Topic:</strong> census-style demographic and employment data</li>
+<li><strong>Preprocessing needed:</strong> convert <code>?</code> placeholders to missing values</li>
+<li><strong>Preprocessing needed:</strong> one-hot encode categorical predictors such as work class, education, marital status, occupation, relationship, race, sex, and native country</li>
+<li><strong>Preprocessing needed:</strong> drop or transform the original classification target if it is not part of the regression task</li>
+</ul>
+<!-- ## Bank Marketing
+
+Webpage: <https://archive.ics.uci.edu/dataset/222/bank+marketing>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+bank_marketing <- fetch_ucirepo(id = 222)
+bank_marketing_data <- bank_marketing$data$original
+
+dim(bank_marketing_data)
+head(bank_marketing_data)
+```
+:::
+
+
+- **Number of features:** 16
+- **Number of targets:** 1
+- **Number of observations:** 45,211
+- **Response variable:** official target is `y`; for regression, users sometimes instead model a quantitative field such as `balance`
+- **Topic:** direct marketing campaigns by a Portuguese banking institution
+- **Preprocessing needed:** remove or carefully handle the campaign outcome variable `y` if it is not being modeled
+- **Preprocessing needed:** encode categorical fields such as job, marital status, education, contact type, month, and poutcome
+- **Preprocessing needed:** check for skewness in `balance`, `duration`, and campaign-count variables and transform if needed -->
+<!-- ## Online Retail
+
+Webpage: <https://archive.ics.uci.edu/dataset/352/online+retail>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+online_retail <- fetch_ucirepo(id = 352)
+online_retail_data <- online_retail$data$original
+
+dim(online_retail_data)
+head(online_retail_data)
+```
+:::
+
+
+- **Number of variables:** 8
+- **Number of observations:** 541,909
+- **Response variable:** a quantitative choice is `UnitPrice`
+- **Topic:** online retail transactions
+- **Preprocessing needed:** parse `InvoiceDate` as a date-time variable
+- **Preprocessing needed:** remove cancellations and returns, typically identified by invoice codes beginning with `C` or by negative quantities
+- **Preprocessing needed:** decide how to handle missing `CustomerID`
+- **Preprocessing needed:** encode `Country` and engineer transaction-level or customer-level features if modeling beyond raw line items -->
+<!-- ## Car Evaluation
+
+Webpage: <https://archive.ics.uci.edu/dataset/19/car+evaluation>
+
+
+::: {.cell}
+
+```{.r .cell-code}
+car_evaluation <- fetch_ucirepo(id = 19)
+car_evaluation_data <- car_evaluation$data$original
+
+dim(car_evaluation_data)
+head(car_evaluation_data)
+```
+:::
+
+
+- **Number of features:** 6
+- **Number of targets:** 1
+- **Number of observations:** 1,728
+- **Response variable:** this is mainly a classification dataset; if you use it for regression, you would need to create an ordinal or numeric response yourself
+- **Topic:** car acceptability evaluation
+- **Preprocessing needed:** create a numeric or ordinal response from the categorical acceptability label
+- **Preprocessing needed:** encode all predictors, which are categorical and ordinal
+- **Preprocessing needed:** preserve ordinal structure for variables such as buying price, maintenance cost, safety, luggage boot size, and number of persons -->
+</section>
+<section id="air-quality" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="air-quality"><span class="header-section-number">4.2</span> Air Quality</h2>
+<p>Webpage: <a href="https://archive.ics.uci.edu/dataset/360/air+quality" class="uri">https://archive.ics.uci.edu/dataset/360/air+quality</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>air_quality <span class="ot">&lt;-</span> <span class="fu">fetch_ucirepo</span>(<span class="at">id =</span> <span class="dv">360</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>air_quality_data <span class="ot">&lt;-</span> air_quality<span class="sc">$</span>data<span class="sc">$</span>original</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(air_quality_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9357   15</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(air_quality_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Date     Time CO(GT) PT08.S1(CO) NMHC(GT) C6H6(GT) PT08.S2(NMHC) NOx(GT)
+1 3/10/2004 18:00:00    2.6        1360      150     11.9          1046     166
+2 3/10/2004 19:00:00    2.0        1292      112      9.4           955     103
+3 3/10/2004 20:00:00    2.2        1402       88      9.0           939     131
+4 3/10/2004 21:00:00    2.2        1376       80      9.2           948     172
+5 3/10/2004 22:00:00    1.6        1272       51      6.5           836     131
+6 3/10/2004 23:00:00    1.2        1197       38      4.7           750      89
+  PT08.S3(NOx) NO2(GT) PT08.S4(NO2) PT08.S5(O3)    T   RH     AH
+1         1056     113         1692        1268 13.6 48.9 0.7578
+2         1174      92         1559         972 13.3 47.7 0.7255
+3         1140     114         1555        1074 11.9 54.0 0.7502
+4         1092     122         1584        1203 11.0 60.0 0.7867
+5         1205     116         1490        1110 11.2 59.6 0.7888
+6         1337      96         1393         949 11.2 59.2 0.7848</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Number of features:</strong> 14</li>
+<li><strong>Number of target:</strong> 1</li>
+<li><strong>Number of observations:</strong> 9,358</li>
+<li><strong>Response variable:</strong> a quantitative target such as <code>CO(GT)</code> can be chosen</li>
+<li><strong>Topic:</strong> air pollution measurements from gas sensors</li>
+<li><strong>Preprocessing needed:</strong> convert the original missing-value code, commonly <code>-200</code>, to <code>NA</code></li>
+<li><strong>Preprocessing needed:</strong> parse and combine date and time fields into a usable timestamp</li>
+<li><strong>Preprocessing needed:</strong> standardize or rename variables because several columns contain punctuation-heavy names</li>
+<li><strong>Preprocessing needed:</strong> choose one pollutant as the target and remove other pollutant measures if they create leakage for the task</li>
+</ul>
+</section>
+</section>
+<section id="final-remark" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Final remark</h1>
+<p>A few of the datasets above are more naturally classification datasets, but they were included because they were in your earlier long list. If you want, I can also make a <strong>strict version</strong> that keeps only datasets that clearly satisfy all of your regression-project rules without any caveats.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
