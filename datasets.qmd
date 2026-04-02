@@ -1,6 +1,4 @@
----
-format: typst
----
+
 
 # Medical Insurance Cost Dataset (Kaggle)
 
