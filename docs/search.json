@@ -1,0 +1,302 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "UCI Regression Project Datasets",
+    "section": "",
+    "text": "1 Overview\nThis Quarto project is configured as a book.\nIt currently includes:\n\nuci_regression_datasets.qmd for the UCI regression dataset collection\ndatasets.qmd for the earlier mixed dataset notes\n\nRender the project with:\nquarto render",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html",
+    "href": "uci_regression_datasets.html",
+    "title": "2  Notes",
+    "section": "",
+    "text": "3 Clean datasets\nThis document lists UCI datasets that are potentially useful for regression projects.\nFor each dataset below, I include:\nMost import examples use the {ucimlrepo} package, which can fetch datasets directly from the UCI Machine Learning Repository from within R.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#student-performance",
+    "href": "uci_regression_datasets.html#student-performance",
+    "title": "2  Notes",
+    "section": "3.1 Student Performance",
+    "text": "3.1 Student Performance\nWebpage: https://archive.ics.uci.edu/dataset/320/student+performance\n\nstudent_performance &lt;- fetch_ucirepo(id = 320)\nstudent_performance_data &lt;- student_performance$data$original\n\ndim(student_performance_data)\n\n[1] 649  33\n\nhead(student_performance_data)\n\n  school sex age address famsize Pstatus Medu Fedu     Mjob     Fjob     reason\n1     GP   F  18       U     GT3       A    4    4  at_home  teacher     course\n2     GP   F  17       U     GT3       T    1    1  at_home    other     course\n3     GP   F  15       U     LE3       T    1    1  at_home    other      other\n4     GP   F  15       U     GT3       T    4    2   health services       home\n5     GP   F  16       U     GT3       T    3    3    other    other       home\n6     GP   M  16       U     LE3       T    4    3 services    other reputation\n  guardian traveltime studytime failures schoolsup famsup paid activities\n1   mother          2         2        0       yes     no   no         no\n2   father          1         2        0        no    yes   no         no\n3   mother          1         2        0       yes     no   no         no\n4   mother          1         3        0        no    yes   no        yes\n5   father          1         2        0        no    yes   no         no\n6   mother          1         2        0        no    yes   no        yes\n  nursery higher internet romantic famrel freetime goout Dalc Walc health\n1     yes    yes       no       no      4        3     4    1    1      3\n2      no    yes      yes       no      5        3     3    1    1      3\n3     yes    yes      yes       no      4        3     2    2    3      3\n4     yes    yes      yes      yes      3        2     2    1    1      5\n5     yes    yes       no       no      4        3     2    1    2      5\n6     yes    yes      yes       no      5        4     2    1    2      5\n  absences G1 G2 G3\n1        4  0 11 11\n2        2  9 11 11\n3        6 12 13 12\n4        0 14 14 14\n5        0 11 13 13\n6        6 12 12 13\n\n\n\nNumber of features: 30\nNumber of targets: 3\nNumber of observations: 649\nResponse variable: official targets are G1, G2, and G3; for regression, G3 is the usual choice\nTopic: student achievement in secondary education",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#bike-sharing",
+    "href": "uci_regression_datasets.html#bike-sharing",
+    "title": "2  Notes",
+    "section": "3.2 Bike Sharing",
+    "text": "3.2 Bike Sharing\nWebpage: https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset\n\nbike_sharing &lt;- fetch_ucirepo(id = 275)\nbike_sharing_data &lt;- bike_sharing$data$original\n\ndim(bike_sharing_data)\n\n[1] 17379    17\n\nhead(bike_sharing_data)\n\n  instant     dteday season yr mnth hr holiday weekday workingday weathersit\n1       1 2011-01-01      1  0    1  0       0       6          0          1\n2       2 2011-01-01      1  0    1  1       0       6          0          1\n3       3 2011-01-01      1  0    1  2       0       6          0          1\n4       4 2011-01-01      1  0    1  3       0       6          0          1\n5       5 2011-01-01      1  0    1  4       0       6          0          1\n6       6 2011-01-01      1  0    1  5       0       6          0          2\n  temp  atemp  hum windspeed casual registered cnt\n1 0.24 0.2879 0.81    0.0000      3         13  16\n2 0.22 0.2727 0.80    0.0000      8         32  40\n3 0.22 0.2727 0.80    0.0000      5         27  32\n4 0.24 0.2879 0.75    0.0000      3         10  13\n5 0.24 0.2879 0.75    0.0000      0          1   1\n6 0.24 0.2576 0.75    0.0896      0          1   1\n\n\n\nNumber of features: 13\nNumber of targets: 3\nNumber of observations: 17,379 for the hourly data\nResponse variable: official targets are casual, registered, and cnt; cnt is the usual choice\nTopic: bicycle rental demand with weather and seasonal information",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#auto-mpg",
+    "href": "uci_regression_datasets.html#auto-mpg",
+    "title": "2  Notes",
+    "section": "3.3 Auto MPG",
+    "text": "3.3 Auto MPG\nWebpage: https://archive.ics.uci.edu/ml/datasets/auto+mpg\n\nauto_mpg &lt;- fetch_ucirepo(id = 9)\nauto_mpg_data &lt;- auto_mpg$data$original\n\ndim(auto_mpg_data)\n\n[1] 398   9\n\nhead(auto_mpg_data)\n\n                   car_name cylinders displacement horsepower weight\n1 chevrolet,chevelle,malibu         8          307        130   3504\n2         buick,skylark,320         8          350        165   3693\n3        plymouth,satellite         8          318        150   3436\n4             amc,rebel,sst         8          304        150   3433\n5               ford,torino         8          302        140   3449\n6          ford,galaxie,500         8          429        198   4341\n  acceleration model_year origin mpg\n1         12.0         70      1  18\n2         11.5         70      1  15\n3         11.0         70      1  18\n4         12.0         70      1  16\n5         10.5         70      1  17\n6         10.0         70      1  15\n\n\n\nNumber of features: 7\nNumber of targets: 1\nNumber of observations: 398\nResponse variable: mpg\nTopic: fuel economy of automobiles",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#wine-quality",
+    "href": "uci_regression_datasets.html#wine-quality",
+    "title": "2  Notes",
+    "section": "3.4 Wine Quality",
+    "text": "3.4 Wine Quality\nWebpage: https://archive.ics.uci.edu/dataset/186/wine+quality\n\nwine_quality &lt;- fetch_ucirepo(id = 186)\nwine_quality_data &lt;- wine_quality$data$original\n\ndim(wine_quality_data)\n\n[1] 6497   13\n\nhead(wine_quality_data)\n\n  fixed_acidity volatile_acidity citric_acid residual_sugar chlorides\n1           7.4             0.70        0.00            1.9     0.076\n2           7.8             0.88        0.00            2.6     0.098\n3           7.8             0.76        0.04            2.3     0.092\n4          11.2             0.28        0.56            1.9     0.075\n5           7.4             0.70        0.00            1.9     0.076\n6           7.4             0.66        0.00            1.8     0.075\n  free_sulfur_dioxide total_sulfur_dioxide density   pH sulphates alcohol\n1                  11                   34  0.9978 3.51      0.56     9.4\n2                  25                   67  0.9968 3.20      0.68     9.8\n3                  15                   54  0.9970 3.26      0.65     9.8\n4                  17                   60  0.9980 3.16      0.58     9.8\n5                  11                   34  0.9978 3.51      0.56     9.4\n6                  13                   40  0.9978 3.51      0.56     9.4\n  quality color\n1       5   red\n2       5   red\n3       5   red\n4       6   red\n5       5   red\n6       5   red\n\n\n\nNumber of features: 12\nNumber of targets: 1\nNumber of observations: 6,497 combined across red and white wine data.\nResponse variable: quality\nTopic: predicting wine quality from physicochemical measurements",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#heart-disease",
+    "href": "uci_regression_datasets.html#heart-disease",
+    "title": "2  Notes",
+    "section": "3.5 Heart Disease",
+    "text": "3.5 Heart Disease\nWebpage: https://archive.ics.uci.edu/dataset/45/heart+disease\n\nheart_disease &lt;- fetch_ucirepo(id = 45)\nheart_disease_data &lt;- heart_disease$data$original\n\ndim(heart_disease_data)\n\n[1] 303  14\n\nhead(heart_disease_data)\n\n  age sex cp trestbps chol fbs restecg thalach exang oldpeak slope ca thal num\n1  63   1  1      145  233   1       2     150     0     2.3     3  0    6   0\n2  67   1  4      160  286   0       2     108     1     1.5     2  3    3   2\n3  67   1  4      120  229   0       2     129     1     2.6     2  2    7   1\n4  37   1  3      130  250   0       0     187     0     3.5     3  0    3   0\n5  41   0  2      130  204   0       2     172     0     1.4     1  0    3   0\n6  56   1  2      120  236   0       0     178     0     0.8     1  0    3   0\n\n\n\nNumber of features: 13\nNumber of targets: 1\nNumber of observations: 303 for the Cleveland subset typically used in teaching\nResponse variable: official target is num, and treat it as a severity score (while the orginal num is only integer).\nTopic: clinical measurements related to heart disease",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#forest-fires",
+    "href": "uci_regression_datasets.html#forest-fires",
+    "title": "2  Notes",
+    "section": "3.6 Forest Fires",
+    "text": "3.6 Forest Fires\nWebpage: https://archive.ics.uci.edu/dataset/162/forest+fires\n\nforest_fires &lt;- fetch_ucirepo(id = 162)\nforest_fires_data &lt;- forest_fires$data$original\n\ndim(forest_fires_data)\n\n[1] 517  13\n\nhead(forest_fires_data)\n\n  X Y month day FFMC  DMC    DC  ISI temp RH wind rain area\n1 7 5   mar fri 86.2 26.2  94.3  5.1  8.2 51  6.7  0.0    0\n2 7 4   oct tue 90.6 35.4 669.1  6.7 18.0 33  0.9  0.0    0\n3 7 4   oct sat 90.6 43.7 686.9  6.7 14.6 33  1.3  0.0    0\n4 8 6   mar fri 91.7 33.3  77.5  9.0  8.3 97  4.0  0.2    0\n5 8 6   mar sun 89.3 51.3 102.2  9.6 11.4 99  1.8  0.0    0\n6 8 6   aug sun 92.3 85.3 488.0 14.7 22.2 29  5.4  0.0    0\n\n\n\nNumber of features: 12\nNumber of targets: 1\nNumber of observations: 517\nResponse variable: area\nTopic: predicting burned area of forest fires using weather and fire indices",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#energy-efficiency",
+    "href": "uci_regression_datasets.html#energy-efficiency",
+    "title": "2  Notes",
+    "section": "3.7 Energy Efficiency",
+    "text": "3.7 Energy Efficiency\nWebpage: https://archive.ics.uci.edu/dataset/242/energy+efficiency\n\nenergy_efficiency &lt;- fetch_ucirepo(id = 242)\nenergy_efficiency_data &lt;- energy_efficiency$data$original\n\ndim(energy_efficiency_data)\n\n[1] 768  10\n\nhead(energy_efficiency_data)\n\n    X1    X2    X3     X4 X5 X6 X7 X8    Y1    Y2\n1 0.98 514.5 294.0 110.25  7  2  0  0 15.55 21.33\n2 0.98 514.5 294.0 110.25  7  3  0  0 15.55 21.33\n3 0.98 514.5 294.0 110.25  7  4  0  0 15.55 21.33\n4 0.98 514.5 294.0 110.25  7  5  0  0 15.55 21.33\n5 0.90 563.5 318.5 122.50  7  2  0  0 20.84 28.28\n6 0.90 563.5 318.5 122.50  7  3  0  0 21.46 25.38\n\n\n\nNumber of features: 8\nNumber of targets: 2\nNumber of observations: 768\nResponse variable: official targets are Y1 and Y2\nTopic: building energy efficiency",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#airfoil-self-noise",
+    "href": "uci_regression_datasets.html#airfoil-self-noise",
+    "title": "2  Notes",
+    "section": "3.8 Airfoil Self-Noise",
+    "text": "3.8 Airfoil Self-Noise\nWebpage: https://archive.ics.uci.edu/dataset/291/airfoil+self+noise\n\nairfoil_self_noise &lt;- fetch_ucirepo(id = 291)\nairfoil_self_noise_data &lt;- airfoil_self_noise$data$original\n\ndim(airfoil_self_noise_data)\n\n[1] 1503    6\n\nhead(airfoil_self_noise_data)\n\n  frequency attack-angle chord-length free-stream-velocity\n1       800            0       0.3048                 71.3\n2      1000            0       0.3048                 71.3\n3      1250            0       0.3048                 71.3\n4      1600            0       0.3048                 71.3\n5      2000            0       0.3048                 71.3\n6      2500            0       0.3048                 71.3\n  suction-side-displacement-thickness scaled-sound-pressure\n1                          0.00266337               126.201\n2                          0.00266337               125.201\n3                          0.00266337               125.951\n4                          0.00266337               127.591\n5                          0.00266337               127.461\n6                          0.00266337               125.571\n\n\n\nNumber of features: 5\nNumber of targets: 1\nNumber of observations: 1,503\nResponse variable: scaled-sound-pressure\nTopic: aerodynamic and acoustic properties of airfoils",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#parkinsons-telemonitoring",
+    "href": "uci_regression_datasets.html#parkinsons-telemonitoring",
+    "title": "2  Notes",
+    "section": "3.9 Parkinsons Telemonitoring",
+    "text": "3.9 Parkinsons Telemonitoring\nWebpage: https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring\n\nparkinsons_telemonitoring &lt;- fetch_ucirepo(id = 189)\nparkinsons_telemonitoring_data &lt;- parkinsons_telemonitoring$data$original\n\ndim(parkinsons_telemonitoring_data)\n\n[1] 5875   22\n\nhead(parkinsons_telemonitoring_data)\n\n  subject# age sex test_time Jitter(%) Jitter(Abs) Jitter:RAP Jitter:PPQ5\n1        1  72   0    5.6431   0.00662    3.38e-05    0.00401     0.00317\n2        1  72   0   12.6660   0.00300    1.68e-05    0.00132     0.00150\n3        1  72   0   19.6810   0.00481    2.46e-05    0.00205     0.00208\n4        1  72   0   25.6470   0.00528    2.66e-05    0.00191     0.00264\n5        1  72   0   33.6420   0.00335    2.01e-05    0.00093     0.00130\n6        1  72   0   40.6520   0.00353    2.29e-05    0.00119     0.00159\n  Jitter:DDP Shimmer Shimmer(dB) Shimmer:APQ3 Shimmer:APQ5 Shimmer:APQ11\n1    0.01204 0.02565       0.230      0.01438      0.01309       0.01662\n2    0.00395 0.02024       0.179      0.00994      0.01072       0.01689\n3    0.00616 0.01675       0.181      0.00734      0.00844       0.01458\n4    0.00573 0.02309       0.327      0.01106      0.01265       0.01963\n5    0.00278 0.01703       0.176      0.00679      0.00929       0.01819\n6    0.00357 0.02227       0.214      0.01006      0.01337       0.02263\n  Shimmer:DDA      NHR    HNR    RPDE     DFA     PPE motor_UPDRS total_UPDRS\n1     0.04314 0.014290 21.640 0.41888 0.54842 0.16006      28.199      34.398\n2     0.02982 0.011112 27.183 0.43493 0.56477 0.10810      28.447      34.894\n3     0.02202 0.020220 23.047 0.46222 0.54405 0.21014      28.695      35.389\n4     0.03317 0.027837 24.445 0.48730 0.57794 0.33277      28.905      35.810\n5     0.02036 0.011625 26.126 0.47188 0.56122 0.19361      29.187      36.375\n6     0.03019 0.009438 22.946 0.53949 0.57243 0.19500      29.435      36.870\n\n\n\nNumber of features: 19\nNumber of targets: 2\nNumber of observations: 5,875\nResponse variable: official targets are motor_UPDRS and total_UPDRS\nTopic: remote monitoring of Parkinson’s disease symptoms from voice measures",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#abalone",
+    "href": "uci_regression_datasets.html#abalone",
+    "title": "2  Notes",
+    "section": "3.10 Abalone",
+    "text": "3.10 Abalone\nWebpage: https://archive.ics.uci.edu/dataset/1/abalone\n\nabalone &lt;- fetch_ucirepo(id = 1)\nabalone_data &lt;- abalone$data$original\n\ndim(abalone_data)\n\n[1] 4177    9\n\nhead(abalone_data)\n\n  Sex Length Diameter Height Whole_weight Shucked_weight Viscera_weight\n1   M  0.455    0.365  0.095       0.5140         0.2245         0.1010\n2   M  0.350    0.265  0.090       0.2255         0.0995         0.0485\n3   F  0.530    0.420  0.135       0.6770         0.2565         0.1415\n4   M  0.440    0.365  0.125       0.5160         0.2155         0.1140\n5   I  0.330    0.255  0.080       0.2050         0.0895         0.0395\n6   I  0.425    0.300  0.095       0.3515         0.1410         0.0775\n  Shell_weight Rings\n1        0.150    15\n2        0.070     7\n3        0.210     9\n4        0.155    10\n5        0.055     7\n6        0.120     8\n\n\n\nNumber of features: 8\nNumber of targets: 1\nNumber of observations: 4,177\nResponse variable: Rings\nTopic: predicting abalone age from physical measurements",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#concrete-compressive-strength",
+    "href": "uci_regression_datasets.html#concrete-compressive-strength",
+    "title": "2  Notes",
+    "section": "3.11 Concrete Compressive Strength",
+    "text": "3.11 Concrete Compressive Strength\nWebpage: https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength\n\nconcrete_strength &lt;- fetch_ucirepo(id = 165)\nconcrete_strength_data &lt;- concrete_strength$data$original\n\ndim(concrete_strength_data)\n\n[1] 1030    9\n\nhead(concrete_strength_data)\n\n  Cement Blast Furnace Slag Fly Ash Water Superplasticizer Coarse Aggregate\n1  540.0                0.0       0   162              2.5           1040.0\n2  540.0                0.0       0   162              2.5           1055.0\n3  332.5              142.5       0   228              0.0            932.0\n4  332.5              142.5       0   228              0.0            932.0\n5  198.6              132.4       0   192              0.0            978.4\n6  266.0              114.0       0   228              0.0            932.0\n  Fine Aggregate Age Concrete compressive strength\n1          676.0  28                         79.99\n2          676.0  28                         61.89\n3          594.0 270                         40.27\n4          594.0 365                         41.05\n5          825.5 360                         44.30\n6          670.0  90                         47.03\n\n\n\nNumber of features: 8\nNumber of targets: 1\nNumber of observations: 1,030\nResponse variable: Concrete compressive strength\nTopic: civil engineering and material strength",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#electrical-grid-stability-simulated-data",
+    "href": "uci_regression_datasets.html#electrical-grid-stability-simulated-data",
+    "title": "2  Notes",
+    "section": "3.12 Electrical Grid Stability Simulated Data",
+    "text": "3.12 Electrical Grid Stability Simulated Data\nWebpage: https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data\n\nelectrical_grid_stability &lt;- fetch_ucirepo(id = 471)\nelectrical_grid_stability_data &lt;- electrical_grid_stability$data$original\n\ndim(electrical_grid_stability_data)\n\n[1] 10000    14\n\nhead(electrical_grid_stability_data)\n\n       tau1     tau2     tau3     tau4       p1         p2         p3\n1 2.9590600 3.079885 8.381025 9.780754 3.763085 -0.7826036 -1.2573948\n2 9.3040972 4.902524 3.047541 1.369357 5.067812 -1.9400584 -1.8727417\n3 8.9717069 8.848428 3.046479 1.214518 3.405158 -1.2074556 -1.2772101\n4 0.7164148 7.669600 4.486641 2.340563 3.963791 -1.0274733 -1.9389442\n5 3.1341116 7.608772 4.943759 9.857573 3.525811 -1.1255310 -1.8459749\n6 6.9992087 9.109247 3.784066 4.267788 4.429669 -1.8571392 -0.6703968\n          p4        g1         g2        g3        g4         stab    stabf\n1 -1.7230863 0.6504565 0.85957811 0.8874449 0.9580340  0.055347489 unstable\n2 -1.2550120 0.4134406 0.86241408 0.5621391 0.7817599 -0.005957464   stable\n3 -0.9204924 0.1630410 0.76668866 0.8394440 0.1098532  0.003470879 unstable\n4 -0.9973736 0.4462089 0.97674408 0.9293805 0.3627178  0.028870543 unstable\n5 -0.5543050 0.7971095 0.45544995 0.6569467 0.8209235  0.049860373 unstable\n6 -1.9021328 0.2617929 0.07792967 0.5428839 0.4699310 -0.017384907   stable\n\n\n\nNumber of features: 12\nNumber of targets: 2\nNumber of observations: 10,000\nResponse variable: official targets are stab and stabf; for regression, use stab\nTopic: simulated electrical grid stability",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#seoul-bike-sharing-demand",
+    "href": "uci_regression_datasets.html#seoul-bike-sharing-demand",
+    "title": "2  Notes",
+    "section": "3.13 Seoul Bike Sharing Demand",
+    "text": "3.13 Seoul Bike Sharing Demand\nWebpage: https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand\n\nseoul_bike_sharing &lt;- fetch_ucirepo(id = 560)\nseoul_bike_sharing_data &lt;- seoul_bike_sharing$data$original\n\ndim(seoul_bike_sharing_data)\n\n[1] 8760   14\n\nhead(seoul_bike_sharing_data)\n\n       Date Rented Bike Count Hour Temperature Humidity Wind speed Visibility\n1 1/12/2017               254    0        -5.2       37        2.2       2000\n2 1/12/2017               204    1        -5.5       38        0.8       2000\n3 1/12/2017               173    2        -6.0       39        1.0       2000\n4 1/12/2017               107    3        -6.2       40        0.9       2000\n5 1/12/2017                78    4        -6.0       36        2.3       2000\n6 1/12/2017               100    5        -6.4       37        1.5       2000\n  Dew point temperature Solar Radiation Rainfall Snowfall Seasons    Holiday\n1                 -17.6               0        0        0  Winter No Holiday\n2                 -17.6               0        0        0  Winter No Holiday\n3                 -17.7               0        0        0  Winter No Holiday\n4                 -17.6               0        0        0  Winter No Holiday\n5                 -18.6               0        0        0  Winter No Holiday\n6                 -18.7               0        0        0  Winter No Holiday\n  Functioning Day\n1             Yes\n2             Yes\n3             Yes\n4             Yes\n5             Yes\n6             Yes\n\n\n\nNumber of features: 13\nNumber of targets: 1\nNumber of observations: 8,760\nResponse variable: Rented Bike Count\nTopic: urban bike rental demand with weather and seasonal information",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#gas-turbine-co-and-nox-emission-data-set",
+    "href": "uci_regression_datasets.html#gas-turbine-co-and-nox-emission-data-set",
+    "title": "2  Notes",
+    "section": "3.14 Gas Turbine CO and NOx Emission Data Set",
+    "text": "3.14 Gas Turbine CO and NOx Emission Data Set\nWebpage: https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set\n\ngas_turbine &lt;- fetch_ucirepo(id = 551)\ngas_turbine_data &lt;- gas_turbine$data$original\n\ndim(gas_turbine_data)\n\n[1] 36733    12\n\nhead(gas_turbine_data)\n\n  year     AT     AP     AH   AFDP   GTEP    TIT    TAT    TEY    CDP      CO\n1 2011 4.5878 1018.7 83.675 3.5758 23.979 1086.2 549.83 134.67 11.898 0.32663\n2 2011 4.2932 1018.3 84.235 3.5709 23.951 1086.1 550.05 134.67 11.892 0.44784\n3 2011 3.9045 1018.4 84.858 3.5828 23.990 1086.5 550.19 135.10 12.042 0.45144\n4 2011 3.7436 1018.3 85.434 3.5808 23.911 1086.5 550.17 135.03 11.990 0.23107\n5 2011 3.7516 1017.8 85.182 3.5781 23.917 1085.9 550.00 134.67 11.910 0.26747\n6 2011 3.8858 1017.7 83.946 3.5824 23.903 1086.0 549.98 134.67 11.868 0.23473\n     NOX\n1 81.952\n2 82.377\n3 83.776\n4 82.505\n5 82.028\n6 81.748\n\n\n\nNumber of variables: 10\nNumber of observations: 36,733\nResponse variable: official targets are CO and NOX\nTopic: gas turbine emissions and sensor measurements",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#superconductivity",
+    "href": "uci_regression_datasets.html#superconductivity",
+    "title": "2  Notes",
+    "section": "3.15 Superconductivity",
+    "text": "3.15 Superconductivity\nWebpage: https://archive.ics.uci.edu/dataset/464/superconductivty+data\n\nsuperconductivity &lt;- fetch_ucirepo(id = 464)\nsuperconductivity_data &lt;- superconductivity$data$original\n\ndim(superconductivity_data)\n\n[1] 21263    82\n\nhead(superconductivity_data)\n\n  number_of_elements mean_atomic_mass wtd_mean_atomic_mass gmean_atomic_mass\n1                  4         88.94447             57.86269          66.36159\n2                  5         92.72921             58.51842          73.13279\n3                  4         88.94447             57.88524          66.36159\n4                  4         88.94447             57.87397          66.36159\n5                  4         88.94447             57.84014          66.36159\n6                  4         88.94447             57.79504          66.36159\n  wtd_gmean_atomic_mass entropy_atomic_mass wtd_entropy_atomic_mass\n1              36.11661            1.181795               1.0623955\n2              36.39660            1.449309               1.0577551\n3              36.12251            1.181795               0.9759805\n4              36.11956            1.181795               1.0222909\n5              36.11072            1.181795               1.1292237\n6              36.09893            1.181795               1.2252028\n  range_atomic_mass wtd_range_atomic_mass std_atomic_mass wtd_std_atomic_mass\n1          122.9061              31.79492        51.96883            53.62253\n2          122.9061              36.16194        47.09463            53.97987\n3          122.9061              35.74110        51.96883            53.65627\n4          122.9061              33.76801        51.96883            53.63940\n5          122.9061              27.84874        51.96883            53.58877\n6          122.9061              20.68746        51.96883            53.52115\n  mean_fie wtd_mean_fie gmean_fie wtd_gmean_fie entropy_fie wtd_entropy_fie\n1  775.425     1010.269  718.1529      938.0168    1.305967       0.7914878\n2  766.440     1010.613  720.6055      938.7454    1.544145       0.8070782\n3  775.425     1010.820  718.1529      939.0090    1.305967       0.7736202\n4  775.425     1010.544  718.1529      938.5128    1.305967       0.7832067\n5  775.425     1009.717  718.1529      937.0256    1.305967       0.8052296\n6  775.425     1008.614  718.1529      935.0463    1.305967       0.8247426\n  range_fie wtd_range_fie  std_fie wtd_std_fie mean_atomic_radius\n1     810.6      735.9857 323.8118    355.5630             160.25\n2     810.6      743.1643 290.1830    354.9635             161.20\n3     810.6      743.1643 323.8118    354.8042             160.25\n4     810.6      739.5750 323.8118    355.1839             160.25\n5     810.6      728.8071 323.8118    356.3193             160.25\n6     810.6      714.4500 323.8118    357.8246             160.25\n  wtd_mean_atomic_radius gmean_atomic_radius wtd_gmean_atomic_radius\n1               105.5143            136.1260                84.52842\n2               104.9714            141.4652                84.37017\n3               104.6857            136.1260                84.21457\n4               105.1000            136.1260                84.37135\n5               106.3429            136.1260                84.84344\n6               108.0000            136.1260                85.47701\n  entropy_atomic_radius wtd_entropy_atomic_radius range_atomic_radius\n1              1.259244                  1.207040                 205\n2              1.508328                  1.204115                 205\n3              1.259244                  1.132547                 205\n4              1.259244                  1.173033                 205\n5              1.259244                  1.261194                 205\n6              1.259244                  1.331339                 205\n  wtd_range_atomic_radius std_atomic_radius wtd_std_atomic_radius mean_Density\n1                42.91429          75.23754              69.23557     4654.357\n2                50.57143          67.32132              68.00882     5821.486\n3                49.31429          75.23754              67.79771     4654.357\n4                46.11429          75.23754              68.52166     4654.357\n5                36.51429          75.23754              70.63445     4654.357\n6                23.71429          75.23754              73.32413     4654.357\n  wtd_mean_Density gmean_Density wtd_gmean_Density entropy_Density\n1         2961.502      724.9532          53.54381        1.033129\n2         3021.017     1237.0951          54.09572        1.314442\n3         2999.159      724.9532          53.97402        1.033129\n4         2980.331      724.9532          53.75849        1.033129\n5         2923.845      724.9532          53.11703        1.033129\n6         2848.531      724.9532          52.27364        1.033129\n  wtd_entropy_Density range_Density wtd_range_Density std_Density\n1           0.8145982      8958.571          1579.583    3306.163\n2           0.9148022     10488.571          1667.383    3767.403\n3           0.7603052      8958.571          1667.383    3306.163\n4           0.7888885      8958.571          1623.483    3306.163\n5           0.8598109      8958.571          1491.783    3306.163\n6           0.9323687      8958.571          1316.183    3306.163\n  wtd_std_Density mean_ElectronAffinity wtd_mean_ElectronAffinity\n1        3572.597               81.8375                  111.7271\n2        3632.649               90.8900                  112.3164\n3        3592.019               81.8375                  112.2136\n4        3582.371               81.8375                  111.9704\n5        3552.669               81.8375                  111.2407\n6        3511.262               81.8375                  110.2679\n  gmean_ElectronAffinity wtd_gmean_ElectronAffinity entropy_ElectronAffinity\n1               60.12318                   99.41468                 1.159687\n2               69.83331                  101.16640                 1.427997\n3               60.12318                  101.08215                 1.159687\n4               60.12318                  100.24495                 1.159687\n5               60.12318                   97.77472                 1.159687\n6               60.12318                   94.57550                 1.159687\n  wtd_entropy_ElectronAffinity range_ElectronAffinity\n1                    0.7873817                 127.05\n2                    0.8386665                 127.05\n3                    0.7860067                 127.05\n4                    0.7869005                 127.05\n5                    0.7873962                 127.05\n6                    0.7844615                 127.05\n  wtd_range_ElectronAffinity std_ElectronAffinity wtd_std_ElectronAffinity\n1                   80.98714             51.43371                 42.55840\n2                   81.20786             49.43817                 41.66762\n3                   81.20786             51.43371                 41.63988\n4                   81.09750             51.43371                 42.10234\n5                   80.76643             51.43371                 43.45206\n6                   80.32500             51.43371                 45.17068\n  mean_FusionHeat wtd_mean_FusionHeat gmean_FusionHeat wtd_gmean_FusionHeat\n1          6.9055            3.846857         3.479475             1.040986\n2          7.7844            3.796857         4.403790             1.035251\n3          6.9055            3.822571         3.479475             1.037439\n4          6.9055            3.834714         3.479475             1.039211\n5          6.9055            3.871143         3.479475             1.044545\n6          6.9055            3.919714         3.479475             1.051699\n  entropy_FusionHeat wtd_entropy_FusionHeat range_FusionHeat\n1           1.088575              0.9949982           12.878\n2           1.374977              1.0730938           12.878\n3           1.088575              0.9274794           12.878\n4           1.088575              0.9640310           12.878\n5           1.088575              1.0449695           12.878\n6           1.088575              1.1118503           12.878\n  wtd_range_FusionHeat std_FusionHeat wtd_std_FusionHeat\n1             1.744571       4.599064           4.666920\n2             1.595714       4.473363           4.603000\n3             1.757143       4.599064           4.649635\n4             1.744571       4.599064           4.658301\n5             1.744571       4.599064           4.684014\n6             1.744571       4.599064           4.717642\n  mean_ThermalConductivity wtd_mean_ThermalConductivity\n1                 107.7566                     61.01519\n2                 172.2053                     61.37233\n3                 107.7566                     60.94376\n4                 107.7566                     60.97947\n5                 107.7566                     61.08662\n6                 107.7566                     61.22947\n  gmean_ThermalConductivity wtd_gmean_ThermalConductivity\n1                  7.062488                     0.6219795\n2                 16.064228                     0.6197346\n3                  7.062488                     0.6190947\n4                  7.062488                     0.6205354\n5                  7.062488                     0.6248777\n6                  7.062488                     0.6307148\n  entropy_ThermalConductivity wtd_entropy_ThermalConductivity\n1                   0.3081480                       0.2628483\n2                   0.8474042                       0.5677061\n3                   0.3081480                       0.2504774\n4                   0.3081480                       0.2570451\n5                   0.3081480                       0.2728199\n6                   0.3081480                       0.2882356\n  range_ThermalConductivity wtd_range_ThermalConductivity\n1                  399.9734                      57.12767\n2                  429.9734                      51.41338\n3                  399.9734                      57.12767\n4                  399.9734                      57.12767\n5                  399.9734                      57.12767\n6                  399.9734                      57.12767\n  std_ThermalConductivity wtd_std_ThermalConductivity mean_Valence\n1                168.8542                    138.5172         2.25\n2                198.5546                    139.6309         2.00\n3                168.8542                    138.5406         2.25\n4                168.8542                    138.5289         2.25\n5                168.8542                    138.4937         2.25\n6                168.8542                    138.4466         2.25\n  wtd_mean_Valence gmean_Valence wtd_gmean_Valence entropy_Valence\n1         2.257143      2.213364          2.219783        1.368922\n2         2.257143      1.888175          2.210679        1.557113\n3         2.271429      2.213364          2.232679        1.368922\n4         2.264286      2.213364          2.226222        1.368922\n5         2.242857      2.213364          2.206963        1.368922\n6         2.214286      2.213364          2.181543        1.368922\n  wtd_entropy_Valence range_Valence wtd_range_Valence std_Valence\n1            1.066221             1          1.085714   0.4330127\n2            1.047221             2          1.128571   0.6324555\n3            1.029175             1          1.114286   0.4330127\n4            1.048834             1          1.100000   0.4330127\n5            1.096052             1          1.057143   0.4330127\n6            1.141474             1          1.000000   0.4330127\n  wtd_std_Valence critical_temp\n1       0.4370588            29\n2       0.4686063            26\n3       0.4446966            19\n4       0.4409521            22\n5       0.4288095            23\n6       0.4103259            23\n\n\n\nNumber of features: 81\nNumber of targets: 1\nNumber of observations: 21,263\nResponse variable: critical_temp\nTopic: materials science and superconductivity",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#appliances-energy-prediction",
+    "href": "uci_regression_datasets.html#appliances-energy-prediction",
+    "title": "2  Notes",
+    "section": "3.16 Appliances Energy Prediction",
+    "text": "3.16 Appliances Energy Prediction\nWebpage: https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction\n\nappliances_energy &lt;- fetch_ucirepo(id = 374)\nappliances_energy_data &lt;- appliances_energy$data$original\n\ndim(appliances_energy_data)\n\n[1] 19735    29\n\nhead(appliances_energy_data)\n\n                date Appliances lights    T1     RH_1   T2     RH_2    T3\n1 2016-01-1117:00:00         60     30 19.89 47.59667 19.2 44.79000 19.79\n2 2016-01-1117:10:00         60     30 19.89 46.69333 19.2 44.72250 19.79\n3 2016-01-1117:20:00         50     30 19.89 46.30000 19.2 44.62667 19.79\n4 2016-01-1117:30:00         50     40 19.89 46.06667 19.2 44.59000 19.79\n5 2016-01-1117:40:00         60     40 19.89 46.33333 19.2 44.53000 19.79\n6 2016-01-1117:50:00         50     40 19.89 46.02667 19.2 44.50000 19.79\n      RH_3       T4     RH_4       T5  RH_5       T6     RH_6       T7     RH_7\n1 44.73000 19.00000 45.56667 17.16667 55.20 7.026667 84.25667 17.20000 41.62667\n2 44.79000 19.00000 45.99250 17.16667 55.20 6.833333 84.06333 17.20000 41.56000\n3 44.93333 18.92667 45.89000 17.16667 55.09 6.560000 83.15667 17.20000 41.43333\n4 45.00000 18.89000 45.72333 17.16667 55.09 6.433333 83.42333 17.13333 41.29000\n5 45.00000 18.89000 45.53000 17.20000 55.09 6.366667 84.89333 17.20000 41.23000\n6 44.93333 18.89000 45.73000 17.13333 55.03 6.300000 85.76667 17.13333 41.26000\n    T8     RH_8       T9  RH_9 T_out Press_mm_hg RH_out Windspeed Visibility\n1 18.2 48.90000 17.03333 45.53  6.60       733.5     92  7.000000   63.00000\n2 18.2 48.86333 17.06667 45.56  6.48       733.6     92  6.666667   59.16667\n3 18.2 48.73000 17.00000 45.50  6.37       733.7     92  6.333333   55.33333\n4 18.1 48.59000 17.00000 45.40  6.25       733.8     92  6.000000   51.50000\n5 18.1 48.59000 17.00000 45.40  6.13       733.9     92  5.666667   47.66667\n6 18.1 48.59000 17.00000 45.29  6.02       734.0     92  5.333333   43.83333\n  Tdewpoint      rv1      rv2\n1       5.3 13.27543 13.27543\n2       5.2 18.60619 18.60619\n3       5.1 28.64267 28.64267\n4       5.0 45.41039 45.41039\n5       4.9 10.08410 10.08410\n6       4.8 44.91948 44.91948\n\n\n\nNumber of features: 28\nNumber of targets: 1\nNumber of observations: 19,735\nResponse variable: Appliances\nTopic: household energy use prediction",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#adult",
+    "href": "uci_regression_datasets.html#adult",
+    "title": "2  Notes",
+    "section": "4.1 Adult",
+    "text": "4.1 Adult\nWebpage: https://archive.ics.uci.edu/dataset/2/adult\n\nadult &lt;- fetch_ucirepo(id = 2)\nadult_data &lt;- adult$data$original\n\ndim(adult_data)\n\n[1] 48842    15\n\nhead(adult_data)\n\n  age        workclass fnlwgt education education-num     marital-status\n1  39        State-gov  77516 Bachelors            13      Never-married\n2  50 Self-emp-not-inc  83311 Bachelors            13 Married-civ-spouse\n3  38          Private 215646   HS-grad             9           Divorced\n4  53          Private 234721      11th             7 Married-civ-spouse\n5  28          Private 338409 Bachelors            13 Married-civ-spouse\n6  37          Private 284582   Masters            14 Married-civ-spouse\n         occupation  relationship  race    sex capital-gain capital-loss\n1      Adm-clerical Not-in-family White   Male         2174            0\n2   Exec-managerial       Husband White   Male            0            0\n3 Handlers-cleaners Not-in-family White   Male            0            0\n4 Handlers-cleaners       Husband Black   Male            0            0\n5    Prof-specialty          Wife Black Female            0            0\n6   Exec-managerial          Wife White Female            0            0\n  hours-per-week native-country income\n1             40  United-States  &lt;=50K\n2             13  United-States  &lt;=50K\n3             40  United-States  &lt;=50K\n4             40  United-States  &lt;=50K\n5             40           Cuba  &lt;=50K\n6             40  United-States  &lt;=50K\n\n\n\nNumber of features: 14\nNumber of targets: 1\nNumber of observations: 48,842\nResponse variable: if you want regression, a workable quantitative outcome is hours-per-week\nTopic: census-style demographic and employment data\nMissing-data handling: convert ? placeholders to NA\nParsing / encoding: one-hot encode categorical predictors such as work class, education, marital status, occupation, relationship, race, sex, and native country\nOther preparation: remove or redefine the original classification target if it is not part of the regression task",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#air-quality",
+    "href": "uci_regression_datasets.html#air-quality",
+    "title": "2  Notes",
+    "section": "4.2 Air Quality",
+    "text": "4.2 Air Quality\nWebpage: https://archive.ics.uci.edu/dataset/360/air+quality\n\nair_quality &lt;- fetch_ucirepo(id = 360)\nair_quality_data &lt;- air_quality$data$original\n\ndim(air_quality_data)\n\n[1] 9357   15\n\nhead(air_quality_data)\n\n       Date     Time CO(GT) PT08.S1(CO) NMHC(GT) C6H6(GT) PT08.S2(NMHC) NOx(GT)\n1 3/10/2004 18:00:00    2.6        1360      150     11.9          1046     166\n2 3/10/2004 19:00:00    2.0        1292      112      9.4           955     103\n3 3/10/2004 20:00:00    2.2        1402       88      9.0           939     131\n4 3/10/2004 21:00:00    2.2        1376       80      9.2           948     172\n5 3/10/2004 22:00:00    1.6        1272       51      6.5           836     131\n6 3/10/2004 23:00:00    1.2        1197       38      4.7           750      89\n  PT08.S3(NOx) NO2(GT) PT08.S4(NO2) PT08.S5(O3)    T   RH     AH\n1         1056     113         1692        1268 13.6 48.9 0.7578\n2         1174      92         1559         972 13.3 47.7 0.7255\n3         1140     114         1555        1074 11.9 54.0 0.7502\n4         1092     122         1584        1203 11.0 60.0 0.7867\n5         1205     116         1490        1110 11.2 59.6 0.7888\n6         1337      96         1393         949 11.2 59.2 0.7848\n\n\n\nNumber of features: 14\nNumber of targets: 1\nNumber of observations: 9,357\nResponse variable: a reasonable regression target is one ground-truth pollutant measurement, such as CO(GT)\nTopic: air pollution measurements from gas sensors\nMissing-data handling: convert the original missing-value code, commonly -200, to NA\nParsing / encoding: parse and combine the date and time fields into a usable timestamp\nOther preparation: after choosing one (GT) pollutant as the target, drop the other (GT) pollutant columns and keep the sensor, weather, and time-based variables as predictors",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#individual-household-electric-power-consumption",
+    "href": "uci_regression_datasets.html#individual-household-electric-power-consumption",
+    "title": "2  Notes",
+    "section": "4.3 Individual Household Electric Power Consumption",
+    "text": "4.3 Individual Household Electric Power Consumption\nWebpage: https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption\n\nhousehold_power &lt;- fetch_ucirepo(id = 235)\nhousehold_power_data &lt;- household_power$data$original\n\ndim(household_power_data)\nhead(household_power_data)\n\n\nNumber of features: 9\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: 2,075,259\nResponse variable: a natural regression target is Global_active_power\nTopic: household electricity consumption over time\nMissing-data handling: convert blank measurement fields to NA; the UCI page notes about 1.25% missing rows in the measurements\nParsing / encoding: parse Date and Time, combine them into a timestamp, and convert imported text columns to numeric values\nMerging / reshaping: none",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#beijing-multi-site-air-quality",
+    "href": "uci_regression_datasets.html#beijing-multi-site-air-quality",
+    "title": "2  Notes",
+    "section": "4.4 Beijing Multi-Site Air Quality",
+    "text": "4.4 Beijing Multi-Site Air Quality\nWebpage: https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data\n\nbeijing_air_quality &lt;- fetch_ucirepo(id = 501)\nbeijing_air_quality_data &lt;- beijing_air_quality$data$original\n\ndim(beijing_air_quality_data)\nhead(beijing_air_quality_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: 420,768\nResponse variable: a natural regression target is one pollutant such as PM2.5, PM10, or O3\nTopic: multi-site air-pollution and weather measurements in Beijing\nMissing-data handling: keep, drop, or impute rows with missing values; the UCI page states that missing data are denoted as NA\nParsing / encoding: parse year, month, day, and hour into a timestamp\nMerging / reshaping: unzip and stack the multiple site files into one table, keeping station as a grouping variable if needed",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#sml2010",
+    "href": "uci_regression_datasets.html#sml2010",
+    "title": "2  Notes",
+    "section": "4.5 SML2010",
+    "text": "4.5 SML2010\nWebpage: https://archive.ics.uci.edu/dataset/274/sml2010\n\nsml2010 &lt;- fetch_ucirepo(id = 274)\nsml2010_data &lt;- sml2010$data$original\n\ndim(sml2010_data)\nhead(sml2010_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: 4,137\nResponse variable: a natural regression target is an indoor temperature variable such as the dining-room or room temperature\nTopic: smart-home environmental sensor measurements\nMissing-data handling: inspect and handle possible missing values; the UCI page says the dataset could contain missing values\nParsing / encoding: parse the UTC Date and Time fields and skip the commented header lines that begin with #\nMerging / reshaping: combine NEW-DATA-1.T15.txt and NEW-DATA-2.T15.txt into one dataset",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#online-retail-ii",
+    "href": "uci_regression_datasets.html#online-retail-ii",
+    "title": "2  Notes",
+    "section": "4.6 Online Retail II",
+    "text": "4.6 Online Retail II\nWebpage: https://archive.ics.uci.edu/dataset/502/online+retail+ii\n\nonline_retail_ii &lt;- fetch_ucirepo(id = 502)\nonline_retail_ii_data &lt;- online_retail_ii$data$original\n\ndim(online_retail_ii_data)\nhead(online_retail_ii_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: 1,067,371\nResponse variable: a workable quantitative target is UnitPrice or an aggregated revenue outcome\nTopic: multi-year online retail transactions\nPreprocessing needed: handle missing values, especially in customer-level fields\nPreprocessing needed: parse InvoiceDate as a date-time variable\nPreprocessing needed: split or merge the Excel workbook sheets into one consistent transaction table before modeling",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#open-university-learning-analytics-dataset",
+    "href": "uci_regression_datasets.html#open-university-learning-analytics-dataset",
+    "title": "2  Notes",
+    "section": "4.6 Open University Learning Analytics Dataset",
+    "text": "4.6 Open University Learning Analytics Dataset\nWebpage: https://archive.ics.uci.edu/dataset/349/open+university+learning+analytics+dataset\n\noulad &lt;- fetch_ucirepo(id = 349)\noulad_data &lt;- oulad$data$original\n\ndim(oulad_data)\nhead(oulad_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: not clearly specified on the UCI page\nResponse variable: a workable quantitative target is assessment score after joining the student and assessment tables\nTopic: student activity, registration, and assessment behavior in online courses\nMissing-data handling: inspect and handle missing values; the UCI page marks the dataset as having missing values\nParsing / encoding: convert date-like offset fields such as registration day, assessment day, and VLE interaction day into a consistent course-time scale\nMerging / reshaping: join the linked tables such as studentAssessment.csv, studentInfo.csv, studentRegistration.csv, studentVle.csv, and vle.csv",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#restaurant-consumer-data",
+    "href": "uci_regression_datasets.html#restaurant-consumer-data",
+    "title": "2  Notes",
+    "section": "4.3 Restaurant & consumer data",
+    "text": "4.3 Restaurant & consumer data\nWebpage: https://archive.ics.uci.edu/dataset/232/restaurant+consumer+data\n\nrestaurant_consumer &lt;- fetch_ucirepo(id = 232)\nrestaurant_consumer_data &lt;- restaurant_consumer$data$original\n\ndim(restaurant_consumer_data)\nhead(restaurant_consumer_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: the main rating table has 1,161 user-place ratings; the auxiliary tables range from 130 to 2,339 rows\nResponse variable: a clear regression target is rating from rating_final.csv\nTopic: restaurant recommendation with user, place, and context attributes\nMissing-data handling: inspect and handle missing values in files such as geoplaces2.csv and userprofile.csv\nParsing / encoding: encode the many categorical preference and restaurant-description variables\nMerging / reshaping: join rating_final.csv with the user and restaurant tables using userID and placeID",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#communities-and-crime-unnormalized",
+    "href": "uci_regression_datasets.html#communities-and-crime-unnormalized",
+    "title": "2  Notes",
+    "section": "4.4 Communities and Crime Unnormalized",
+    "text": "4.4 Communities and Crime Unnormalized\nWebpage: https://archive.ics.uci.edu/dataset/211/communities+and+crime+unnormalized\n\ncommunities_crime &lt;- fetch_ucirepo(id = 211)\ncommunities_crime_data &lt;- communities_crime$data$original\n\ndim(communities_crime_data)\nhead(communities_crime_data)\n\n\nNumber of features: 125\nNumber of targets: 18 possible crime outcomes are described on the UCI page\nNumber of observations: 2,215\nResponse variable: a clear regression target is ViolentCrimesPerPop\nTopic: socio-economic, law-enforcement, and crime measurements for U.S. communities\nMissing-data handling: inspect and handle the many missing values, especially in the law-enforcement variables\nParsing / encoding: encode categorical identifiers such as State if they are retained\nMerging / reshaping: none in the distributed file, but the UCI page notes that the source data were originally combined from several datasets\nOther preparation: choose one crime variable as the target and remove overlapping crime subtotal variables that would leak information into that target",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#kdd-cup-1998",
+    "href": "uci_regression_datasets.html#kdd-cup-1998",
+    "title": "2  Notes",
+    "section": "4.5 KDD Cup 1998",
+    "text": "4.5 KDD Cup 1998\nWebpage: https://archive.ics.uci.edu/dataset/129/kdd+cup+1998\n\nkdd_cup_1998 &lt;- fetch_ucirepo(id = 129)\nkdd_cup_1998_data &lt;- kdd_cup_1998$data$original\n\ndim(kdd_cup_1998_data)\nhead(kdd_cup_1998_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: not clearly specified on the UCI page\nNumber of observations: 191,779\nResponse variable: a clear regression target is TARGET_D, the donation amount in the original KDD target files\nTopic: direct-marketing donation modeling\nMissing-data handling: inspect and handle the missing values noted on the UCI page\nParsing / encoding: encode the large number of categorical marketing and demographic variables\nMerging / reshaping: join the learning file with the provided target file information when reconstructing a modeling table",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#real-estate-valuation",
+    "href": "uci_regression_datasets.html#real-estate-valuation",
+    "title": "2  Notes",
+    "section": "4.6 Real Estate Valuation",
+    "text": "4.6 Real Estate Valuation\nWebpage: https://archive.ics.uci.edu/dataset/477/real+estate+valuation+data+set\n\nreal_estate &lt;- fetch_ucirepo(id = 477)\nreal_estate_data &lt;- real_estate$data$original\n\ndim(real_estate_data)\nhead(real_estate_data)\n\n\nNumber of features: 6\nNumber of targets: 1\nNumber of observations: 414\nResponse variable: Y house price of unit area\nTopic: housing valuation in New Taipei City\nMissing-data handling: none indicated on the UCI page\nParsing / encoding: convert X1 transaction date from its decimal-year format into a more interpretable time representation if needed\nMerging / reshaping: import the Excel file cleanly and standardize variable names if desired",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  },
+  {
+    "objectID": "uci_regression_datasets.html#ujiindoorloc",
+    "href": "uci_regression_datasets.html#ujiindoorloc",
+    "title": "2  Notes",
+    "section": "4.7 UJIIndoorLoc",
+    "text": "4.7 UJIIndoorLoc\nWebpage: https://archive.ics.uci.edu/dataset/310/ujiindoorloc\n\nujiindoorloc &lt;- fetch_ucirepo(id = 310)\nujiindoorloc_data &lt;- ujiindoorloc$data$original\n\ndim(ujiindoorloc_data)\nhead(ujiindoorloc_data)\n\n\nNumber of features: not clearly specified on the UCI page\nNumber of targets: 4 position-related outputs are described on the UCI page\nNumber of observations: 21,048 total, from 19,937 training rows and 1,111 validation rows\nResponse variable: for regression, the clearest targets are Longitude and Latitude\nTopic: indoor localization from WiFi fingerprints\nMissing-data handling: none indicated on the UCI page, but the value 100 should be treated as a special code for undetected WAPs rather than as an ordinary numeric signal\nParsing / encoding: parse the UNIX Timestamp if time effects matter and decide how to treat categorical fields such as BuildingID, SpaceID, UserID, and PhoneID\nMerging / reshaping: combine trainingData.csv and validationData.csv if you want one unified analysis table",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Notes</span>"
+    ]
+  }
+]

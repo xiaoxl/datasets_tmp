@@ -42,7 +42,7 @@ data(tips)
 - 244 observations
 - 7 variables
 - response: `tip`
-
+<!-- 
 
 # Wage (ISLR)
 
@@ -111,7 +111,7 @@ data(Carseats)
 - A simulated data set containing sales of child car seats at 400 different stores.
 - 400 obseravations
 - 11 variables
-- response: `Sales`
+- response: `Sales` -->
 
 
 
@@ -144,3 +144,21 @@ d3 <- merge(d1, d2, by = c("school", "sex", "age", "address", "famsize", "Pstatu
 # heart disease (UCI)
 
 [link](https://archive.ics.uci.edu/dataset/45/heart+disease)
+[file](data/processed.cleveland.data)
+[desc](data/cleve.mod)
+
+- Cleveland subset (303 observations) with 14 variables
+- response: `chol`? 
+- actually this should be classification to predict healthy status
+
+# Bike Sharing (UCI)
+
+[link](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset)
+[day](data/day.csv)
+[hour](data/hour.csv)
+
+This dataset contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system with the corresponding weather and seasonal information.
+
+- 13 variables 
+- `day` contains 731 observations, `hour` contains 17379 observations
+- response: `cnt` Total number of bike rentals

@@ -1,0 +1,663 @@
+
+
+# Notes
+
+This document lists UCI datasets that are potentially useful for regression projects.  
+For each dataset below, I include:
+
+- the UCI webpage link,
+- an R code chunk to import the dataset,
+- basic information such as number of variables, number of observations, response variable, and topic.
+
+Most import examples use the `{ucimlrepo}` package, which can fetch datasets directly from the UCI Machine Learning Repository from within R.
+
+```{r}
+#| warning: false
+# install.packages("ucimlrepo")
+library(ucimlrepo)
+```
+
+# Clean datasets
+
+## Student Performance
+
+Webpage: <https://archive.ics.uci.edu/dataset/320/student+performance>
+
+```{r}
+student_performance <- fetch_ucirepo(id = 320)
+student_performance_data <- student_performance$data$original
+
+dim(student_performance_data)
+head(student_performance_data)
+```
+
+
+- **Number of features:** 30
+- **Number of targets:** 3
+- **Number of observations:** 649 
+- **Response variable:** official targets are `G1`, `G2`, and `G3`; for regression, `G3` is the usual choice
+- **Topic:** student achievement in secondary education
+
+## Bike Sharing
+
+Webpage: <https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset>
+
+```{r}
+bike_sharing <- fetch_ucirepo(id = 275)
+bike_sharing_data <- bike_sharing$data$original
+
+dim(bike_sharing_data)
+head(bike_sharing_data)
+```
+
+- **Number of features:** 13
+- **Number of targets:** 3
+- **Number of observations:** 17,379 for the hourly data
+- **Response variable:** official targets are `casual`, `registered`, and `cnt`; `cnt` is the usual choice
+- **Topic:** bicycle rental demand with weather and seasonal information
+
+## Auto MPG
+
+Webpage: <https://archive.ics.uci.edu/ml/datasets/auto+mpg>
+
+```{r}
+auto_mpg <- fetch_ucirepo(id = 9)
+auto_mpg_data <- auto_mpg$data$original
+
+dim(auto_mpg_data)
+head(auto_mpg_data)
+```
+
+- **Number of features:** 7
+- **Number of targets:** 1
+- **Number of observations:** 398
+- **Response variable:** `mpg`
+- **Topic:** fuel economy of automobiles
+
+## Wine Quality
+
+Webpage: <https://archive.ics.uci.edu/dataset/186/wine+quality>
+
+```{r}
+wine_quality <- fetch_ucirepo(id = 186)
+wine_quality_data <- wine_quality$data$original
+
+dim(wine_quality_data)
+head(wine_quality_data)
+```
+
+- **Number of features:** 12
+- **Number of targets:** 1
+- **Number of observations:** 6,497 combined across red and white wine data.
+- **Response variable:** `quality`
+- **Topic:** predicting wine quality from physicochemical measurements
+
+
+## Heart Disease
+
+Webpage: <https://archive.ics.uci.edu/dataset/45/heart+disease>
+
+```{r}
+heart_disease <- fetch_ucirepo(id = 45)
+heart_disease_data <- heart_disease$data$original
+
+dim(heart_disease_data)
+head(heart_disease_data)
+```
+
+- **Number of features:** 13
+- **Number of targets:** 1
+- **Number of observations:** 303 for the Cleveland subset typically used in teaching
+- **Response variable:** official target is `num`, and treat it as a severity score (while the orginal num is only integer).
+- **Topic:** clinical measurements related to heart disease
+
+## Forest Fires
+
+Webpage: <https://archive.ics.uci.edu/dataset/162/forest+fires>
+
+```{r}
+forest_fires <- fetch_ucirepo(id = 162)
+forest_fires_data <- forest_fires$data$original
+
+dim(forest_fires_data)
+head(forest_fires_data)
+```
+
+- **Number of features:** 12
+- **Number of targets:** 1
+- **Number of observations:** 517
+- **Response variable:** `area`
+- **Topic:** predicting burned area of forest fires using weather and fire indices
+
+## Energy Efficiency
+
+Webpage: <https://archive.ics.uci.edu/dataset/242/energy+efficiency>
+
+```{r}
+energy_efficiency <- fetch_ucirepo(id = 242)
+energy_efficiency_data <- energy_efficiency$data$original
+
+dim(energy_efficiency_data)
+head(energy_efficiency_data)
+```
+
+- **Number of features:** 8
+- **Number of targets:** 2
+- **Number of observations:** 768
+- **Response variable:** official targets are `Y1` and `Y2`
+- **Topic:** building energy efficiency
+
+## Airfoil Self-Noise
+
+Webpage: <https://archive.ics.uci.edu/dataset/291/airfoil+self+noise>
+
+```{r}
+airfoil_self_noise <- fetch_ucirepo(id = 291)
+airfoil_self_noise_data <- airfoil_self_noise$data$original
+
+dim(airfoil_self_noise_data)
+head(airfoil_self_noise_data)
+```
+
+- **Number of features:** 5
+- **Number of targets:** 1
+- **Number of observations:** 1,503
+- **Response variable:** `scaled-sound-pressure`
+- **Topic:** aerodynamic and acoustic properties of airfoils
+
+<!-- 
+## Yacht Hydrodynamics
+
+Webpage: <https://archive.ics.uci.edu/dataset/243/yacht+hydrodynamics>
+
+```{r}
+#| eval: false
+yacht_hydrodynamics <- fetch_ucirepo(id = 243)
+yacht_hydrodynamics_data <- yacht_hydrodynamics$data$original
+
+dim(yacht_hydrodynamics_data)
+head(yacht_hydrodynamics_data)
+```
+
+- **Number of features:** 6
+- **Number of targets:** 1
+- **Number of observations:** 308
+- **Response variable:** residuary resistance per unit weight of displacement
+- **Topic:** yacht design and hydrodynamic resistance -->
+
+## Parkinsons Telemonitoring
+
+Webpage: <https://archive.ics.uci.edu/dataset/189/parkinsons+telemonitoring>
+
+```{r}
+parkinsons_telemonitoring <- fetch_ucirepo(id = 189)
+parkinsons_telemonitoring_data <- parkinsons_telemonitoring$data$original
+
+dim(parkinsons_telemonitoring_data)
+head(parkinsons_telemonitoring_data)
+```
+
+- **Number of features:** 19
+- **Number of targets:** 2
+- **Number of observations:** 5,875
+- **Response variable:** official targets are `motor_UPDRS` and `total_UPDRS`
+- **Topic:** remote monitoring of Parkinson's disease symptoms from voice measures
+
+## Abalone
+
+Webpage: <https://archive.ics.uci.edu/dataset/1/abalone>
+
+```{r}
+abalone <- fetch_ucirepo(id = 1)
+abalone_data <- abalone$data$original
+
+dim(abalone_data)
+head(abalone_data)
+```
+
+- **Number of features:** 8
+- **Number of targets:** 1
+- **Number of observations:** 4,177
+- **Response variable:** `Rings`
+- **Topic:** predicting abalone age from physical measurements
+
+## Concrete Compressive Strength
+
+Webpage: <https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>
+
+```{r}
+concrete_strength <- fetch_ucirepo(id = 165)
+concrete_strength_data <- concrete_strength$data$original
+
+dim(concrete_strength_data)
+head(concrete_strength_data)
+```
+
+- **Number of features:** 8
+- **Number of targets:** 1
+- **Number of observations:** 1,030
+- **Response variable:** `Concrete compressive strength`
+- **Topic:** civil engineering and material strength
+
+## Electrical Grid Stability Simulated Data
+
+Webpage: <https://archive.ics.uci.edu/dataset/471/electrical+grid+stability+simulated+data>
+
+```{r}
+electrical_grid_stability <- fetch_ucirepo(id = 471)
+electrical_grid_stability_data <- electrical_grid_stability$data$original
+
+dim(electrical_grid_stability_data)
+head(electrical_grid_stability_data)
+```
+
+- **Number of features:** 12
+- **Number of targets:** 2
+- **Number of observations:** 10,000
+- **Response variable:** official targets are `stab` and `stabf`; for regression, use `stab`
+- **Topic:** simulated electrical grid stability
+
+## Seoul Bike Sharing Demand
+
+Webpage: <https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand>
+
+```{r}
+seoul_bike_sharing <- fetch_ucirepo(id = 560)
+seoul_bike_sharing_data <- seoul_bike_sharing$data$original
+
+dim(seoul_bike_sharing_data)
+head(seoul_bike_sharing_data)
+```
+
+- **Number of features:** 13
+- **Number of targets:** 1
+- **Number of observations:** 8,760
+- **Response variable:** `Rented Bike Count`
+- **Topic:** urban bike rental demand with weather and seasonal information
+
+## Gas Turbine CO and NOx Emission Data Set
+
+Webpage: <https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set>
+
+```{r}
+gas_turbine <- fetch_ucirepo(id = 551)
+gas_turbine_data <- gas_turbine$data$original
+
+dim(gas_turbine_data)
+head(gas_turbine_data)
+```
+
+- **Number of variables:** 10
+- **Number of observations:** 36,733
+- **Response variable:** official targets are `CO` and `NOX`
+- **Topic:** gas turbine emissions and sensor measurements
+
+## Superconductivity
+
+Webpage: <https://archive.ics.uci.edu/dataset/464/superconductivty+data>
+
+```{r}
+superconductivity <- fetch_ucirepo(id = 464)
+superconductivity_data <- superconductivity$data$original
+
+dim(superconductivity_data)
+head(superconductivity_data)
+```
+
+- **Number of features:** 81
+- **Number of targets:** 1
+- **Number of observations:** 21,263
+- **Response variable:** `critical_temp`
+- **Topic:** materials science and superconductivity
+
+## Appliances Energy Prediction
+
+Webpage: <https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction>
+
+```{r}
+appliances_energy <- fetch_ucirepo(id = 374)
+appliances_energy_data <- appliances_energy$data$original
+
+dim(appliances_energy_data)
+head(appliances_energy_data)
+```
+
+- **Number of features:** 28
+- **Number of targets:** 1
+- **Number of observations:** 19,735
+- **Response variable:** `Appliances`
+- **Topic:** household energy use prediction
+
+# Datasets that need a little preprocessing
+
+## Adult
+
+Webpage: <https://archive.ics.uci.edu/dataset/2/adult>
+
+```{r}
+adult <- fetch_ucirepo(id = 2)
+adult_data <- adult$data$original
+
+dim(adult_data)
+head(adult_data)
+```
+
+- **Number of features:** 14
+- **Number of targets:** 1
+- **Number of observations:** 48,842
+- **Response variable:** if you want regression, a workable quantitative outcome is `hours-per-week`
+- **Topic:** census-style demographic and employment data
+- **Missing-data handling:** convert `?` placeholders to `NA`
+- **Parsing / encoding:** one-hot encode categorical predictors such as work class, education, marital status, occupation, relationship, race, sex, and native country
+- **Other preparation:** remove or redefine the original classification target if it is not part of the regression task
+
+<!-- ## Bank Marketing
+
+Webpage: <https://archive.ics.uci.edu/dataset/222/bank+marketing>
+
+```{r}
+#| eval: false
+bank_marketing <- fetch_ucirepo(id = 222)
+bank_marketing_data <- bank_marketing$data$original
+
+dim(bank_marketing_data)
+head(bank_marketing_data)
+```
+
+- **Number of features:** 16
+- **Number of targets:** 1
+- **Number of observations:** 45,211
+- **Response variable:** official target is `y`; for regression, users sometimes instead model a quantitative field such as `balance`
+- **Topic:** direct marketing campaigns by a Portuguese banking institution
+- **Preprocessing needed:** remove or carefully handle the campaign outcome variable `y` if it is not being modeled
+- **Preprocessing needed:** encode categorical fields such as job, marital status, education, contact type, month, and poutcome
+- **Preprocessing needed:** check for skewness in `balance`, `duration`, and campaign-count variables and transform if needed -->
+
+<!-- ## Online Retail
+
+Webpage: <https://archive.ics.uci.edu/dataset/352/online+retail>
+
+```{r}
+#| eval: false
+online_retail <- fetch_ucirepo(id = 352)
+online_retail_data <- online_retail$data$original
+
+dim(online_retail_data)
+head(online_retail_data)
+```
+
+- **Number of variables:** 8
+- **Number of observations:** 541,909
+- **Response variable:** a quantitative choice is `UnitPrice`
+- **Topic:** online retail transactions
+- **Preprocessing needed:** parse `InvoiceDate` as a date-time variable
+- **Preprocessing needed:** remove cancellations and returns, typically identified by invoice codes beginning with `C` or by negative quantities
+- **Preprocessing needed:** decide how to handle missing `CustomerID`
+- **Preprocessing needed:** encode `Country` and engineer transaction-level or customer-level features if modeling beyond raw line items -->
+
+<!-- ## Car Evaluation
+
+Webpage: <https://archive.ics.uci.edu/dataset/19/car+evaluation>
+
+```{r}
+#| eval: false
+car_evaluation <- fetch_ucirepo(id = 19)
+car_evaluation_data <- car_evaluation$data$original
+
+dim(car_evaluation_data)
+head(car_evaluation_data)
+```
+
+- **Number of features:** 6
+- **Number of targets:** 1
+- **Number of observations:** 1,728
+- **Response variable:** this is mainly a classification dataset; if you use it for regression, you would need to create an ordinal or numeric response yourself
+- **Topic:** car acceptability evaluation
+- **Preprocessing needed:** create a numeric or ordinal response from the categorical acceptability label
+- **Preprocessing needed:** encode all predictors, which are categorical and ordinal
+- **Preprocessing needed:** preserve ordinal structure for variables such as buying price, maintenance cost, safety, luggage boot size, and number of persons -->
+
+## Air Quality
+
+Webpage: <https://archive.ics.uci.edu/dataset/360/air+quality>
+
+```{r}
+air_quality <- fetch_ucirepo(id = 360)
+air_quality_data <- air_quality$data$original
+
+dim(air_quality_data)
+head(air_quality_data)
+```
+
+- **Number of features:** 14
+- **Number of targets:** 1
+- **Number of observations:** 9,357
+- **Response variable:** a reasonable regression target is one ground-truth pollutant measurement, such as `CO(GT)`
+- **Topic:** air pollution measurements from gas sensors
+- **Missing-data handling:** convert the original missing-value code, commonly `-200`, to `NA`
+- **Parsing / encoding:** parse and combine the date and time fields into a usable timestamp
+- **Other preparation:** after choosing one `(GT)` pollutant as the target, drop the other `(GT)` pollutant columns and keep the sensor, weather, and time-based variables as predictors
+
+
+
+
+<!-- 
+## Individual Household Electric Power Consumption
+
+Webpage: <https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption>
+
+```{r}
+#| eval: false
+household_power <- fetch_ucirepo(id = 235)
+household_power_data <- household_power$data$original
+
+dim(household_power_data)
+head(household_power_data)
+```
+
+- **Number of features:** 9
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 2,075,259
+- **Response variable:** a clear regression target is `Global_active_power`, the household's minute-level active power consumption
+- **Topic:** household electricity consumption over time
+- **Missing-data handling:** convert blank measurement fields to `NA`; the UCI page notes that about 1.25% of the measurement rows have missing values
+- **Parsing / encoding:** parse `Date` and `Time`, combine them into a timestamp, and convert measurement columns from text to numeric values after import
+- **Merging / reshaping:** none -->
+
+<!-- ## Beijing Multi-Site Air Quality
+
+Webpage: <https://archive.ics.uci.edu/dataset/501/beijing+multi+site+air+quality+data>
+
+```{r}
+#| eval: false
+beijing_air_quality <- fetch_ucirepo(id = 501)
+beijing_air_quality_data <- beijing_air_quality$data$original
+
+dim(beijing_air_quality_data)
+head(beijing_air_quality_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 420,768
+- **Response variable:** a natural regression target is one pollutant such as `PM2.5`, `PM10`, or `O3`
+- **Topic:** multi-site air-pollution and weather measurements in Beijing
+- **Missing-data handling:** keep, drop, or impute rows with missing values; the UCI page states that missing data are denoted as `NA`
+- **Parsing / encoding:** parse `year`, `month`, `day`, and `hour` into a timestamp
+- **Merging / reshaping:** unzip and stack the multiple site files into one table, keeping `station` as a grouping variable if needed -->
+
+<!-- ## SML2010
+
+Webpage: <https://archive.ics.uci.edu/dataset/274/sml2010>
+
+```{r}
+#| eval: false
+sml2010 <- fetch_ucirepo(id = 274)
+sml2010_data <- sml2010$data$original
+
+dim(sml2010_data)
+head(sml2010_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 4,137
+- **Response variable:** a natural regression target is an indoor temperature variable such as the dining-room or room temperature
+- **Topic:** smart-home environmental sensor measurements
+- **Missing-data handling:** inspect and handle possible missing values; the UCI page says the dataset could contain missing values
+- **Parsing / encoding:** parse the UTC `Date` and `Time` fields and skip the commented header lines that begin with `#`
+- **Merging / reshaping:** combine `NEW-DATA-1.T15.txt` and `NEW-DATA-2.T15.txt` into one dataset -->
+
+<!-- ## Online Retail II
+
+Webpage: <https://archive.ics.uci.edu/dataset/502/online+retail+ii>
+
+```{r}
+#| eval: false
+online_retail_ii <- fetch_ucirepo(id = 502)
+online_retail_ii_data <- online_retail_ii$data$original
+
+dim(online_retail_ii_data)
+head(online_retail_ii_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 1,067,371
+- **Response variable:** a workable quantitative target is `UnitPrice` or an aggregated revenue outcome
+- **Topic:** multi-year online retail transactions
+- **Missing-data handling:** inspect and handle missing values, especially in customer-level fields
+- **Parsing / encoding:** parse `InvoiceDate` as a date-time variable
+- **Merging / reshaping:** combine the workbook sheets into one consistent transaction table before modeling -->
+
+<!-- ## Open University Learning Analytics Dataset
+
+Webpage: <https://archive.ics.uci.edu/dataset/349/open+university+learning+analytics+dataset>
+
+```{r}
+#| eval: false
+oulad <- fetch_ucirepo(id = 349)
+oulad_data <- oulad$data$original
+
+dim(oulad_data)
+head(oulad_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** not clearly specified on the UCI page
+- **Response variable:** a workable quantitative target is assessment `score` after joining the student and assessment tables
+- **Topic:** student activity, registration, and assessment behavior in online courses
+- **Missing-data handling:** inspect and handle missing values; the UCI page marks the dataset as having missing values
+- **Parsing / encoding:** convert date-like offset fields such as registration day, assessment day, and VLE interaction day into a consistent course-time scale
+- **Merging / reshaping:** join the linked tables such as `studentAssessment.csv`, `studentInfo.csv`, `studentRegistration.csv`, `studentVle.csv`, and `vle.csv` -->
+
+<!-- ## Restaurant & consumer data
+
+Webpage: <https://archive.ics.uci.edu/dataset/232/restaurant+consumer+data>
+
+```{r}
+#| eval: false
+restaurant_consumer <- fetch_ucirepo(id = 232)
+restaurant_consumer_data <- restaurant_consumer$data$original
+
+dim(restaurant_consumer_data)
+head(restaurant_consumer_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** the main rating table has 1,161 user-place ratings; the auxiliary tables range from 130 to 2,339 rows
+- **Response variable:** a clear regression target is `rating` from `rating_final.csv`
+- **Topic:** restaurant recommendation with user, place, and context attributes
+- **Missing-data handling:** inspect and handle missing values in files such as `geoplaces2.csv` and `userprofile.csv`
+- **Parsing / encoding:** encode the many categorical preference and restaurant-description variables
+- **Merging / reshaping:** join `rating_final.csv` with the user and restaurant tables using `userID` and `placeID` -->
+
+## Communities and Crime Unnormalized
+
+Webpage: <https://archive.ics.uci.edu/dataset/211/communities+and+crime+unnormalized>
+
+```{r}
+communities_crime <- fetch_ucirepo(id = 211)
+communities_crime_data <- communities_crime$data$original
+
+dim(communities_crime_data)
+head(communities_crime_data)
+```
+
+- **Number of features:** 125
+- **Number of targets:** 18 possible crime outcomes are described on the UCI page
+- **Number of observations:** 2,215
+- **Response variable:** a clear regression target is `ViolentCrimesPerPop`
+- **Topic:** socio-economic, law-enforcement, and crime measurements for U.S. communities
+- **Missing-data handling:** inspect and handle the many missing values, especially in the law-enforcement variables
+- **Parsing / encoding:** encode categorical identifiers such as `State` if they are retained
+- **Other preparation:** choose one crime variable as the target and remove overlapping crime subtotal variables that would leak information into that target
+
+<!-- ## KDD Cup 1998
+
+Webpage: <https://archive.ics.uci.edu/dataset/129/kdd+cup+1998>
+
+```{r}
+#| eval: false
+kdd_cup_1998 <- fetch_ucirepo(id = 129)
+kdd_cup_1998_data <- kdd_cup_1998$data$original
+
+dim(kdd_cup_1998_data)
+head(kdd_cup_1998_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** not clearly specified on the UCI page
+- **Number of observations:** 191,779
+- **Response variable:** a clear regression target is `TARGET_D`, the donation amount in the original KDD target files
+- **Topic:** direct-marketing donation modeling
+- **Missing-data handling:** inspect and handle the missing values noted on the UCI page
+- **Parsing / encoding:** encode the large number of categorical marketing and demographic variables
+- **Merging / reshaping:** join the learning file with the provided target file information when reconstructing a modeling table -->
+
+## Real Estate Valuation
+
+Webpage: <https://archive.ics.uci.edu/dataset/477/real+estate+valuation+data+set>
+
+```{r}
+real_estate <- fetch_ucirepo(id = 477)
+real_estate_data <- real_estate$data$original
+
+dim(real_estate_data)
+head(real_estate_data)
+```
+
+- **Number of features:** 6
+- **Number of targets:** 1
+- **Number of observations:** 414
+- **Response variable:** `Y house price of unit area`
+- **Topic:** housing valuation in New Taipei City
+- **Parsing / encoding:** convert `X1 transaction date` from its decimal-year format into a more interpretable time representation if needed
+
+<!-- ## UJIIndoorLoc
+
+Webpage: <https://archive.ics.uci.edu/dataset/310/ujiindoorloc>
+
+```{r}
+#| eval: false
+ujiindoorloc <- fetch_ucirepo(id = 310)
+ujiindoorloc_data <- ujiindoorloc$data$original
+
+dim(ujiindoorloc_data)
+head(ujiindoorloc_data)
+```
+
+- **Number of features:** not clearly specified on the UCI page
+- **Number of targets:** 4 position-related outputs are described on the UCI page
+- **Number of observations:** 21,048 total, from 19,937 training rows and 1,111 validation rows
+- **Response variable:** for regression, the clearest targets are `Longitude` and `Latitude`
+- **Topic:** indoor localization from WiFi fingerprints
+- **Missing-data handling:** none indicated on the UCI page, but the value `100` should be treated as a special code for undetected WAPs rather than as an ordinary numeric signal
+- **Parsing / encoding:** parse the UNIX `Timestamp` if time effects matter and decide how to treat categorical fields such as `BuildingID`, `SpaceID`, `UserID`, and `PhoneID`
+- **Merging / reshaping:** combine `trainingData.csv` and `validationData.csv` if you want one unified analysis table -->
+
+# Final remark
+
+A few of the datasets above are more naturally classification datasets, but they were included because they were in your earlier long list. If you want, I can also make a **strict version** that keeps only datasets that clearly satisfy all of your regression-project rules without any caveats.

@@ -1,2 +1,17 @@
 project:
+  type: book
   output-dir: docs
+
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: true
+  freeze: auto
+book:
+  title: "UCI Regression Project Datasets"
+  chapters:
+    - index.qmd
+    - uci_regression_datasets.qmd
+    # - datasets.qmd

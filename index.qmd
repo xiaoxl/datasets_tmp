@@ -1,0 +1,18 @@
+---
+title: "Overview"
+---
+
+# Overview
+
+This Quarto project is configured as a book.
+
+It currently includes:
+
+- `uci_regression_datasets.qmd` for the UCI regression dataset collection
+- `datasets.qmd` for the earlier mixed dataset notes
+
+Render the project with:
+
+```bash
+quarto render
+```
